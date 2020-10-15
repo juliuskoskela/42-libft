@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/08 23:09:31 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/09/27 04:52:35 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/10/16 01:51:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,18 @@
 # define BUFF_SIZE 4
 # define MAX_FD 1024
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <stdio.h>
 # include <fcntl.h>
-# include <sys/uio.h>
 # include <unistd.h>
-
-typedef struct		s_list
-{
-	void			*content;
-	int				content_size;
-	struct s_list	*next;
-}					t_list;
 
 typedef struct		s_field
 {
 	uint64_t		*row;
-	size_t			w;
-	size_t			h;
-	size_t			bw;
-	size_t			bh;
-	size_t			x;
-	size_t			y;
+	uint64_t		w;
+	uint64_t		h;
+	uint64_t		bw;
+	uint64_t		bh;
+	uint64_t		x;
+	uint64_t		y;
 }					t_field;
 
 typedef struct		s_dlist
@@ -47,109 +36,39 @@ typedef struct		s_dlist
 	struct s_dlist	*prev;
 }					t_dlist;
 
-int					ft_atoi(const char *str);
-int					ft_atoi_base(const char *str, int base);
-double				ft_atof(const char *str);
-char				*ft_itoa(int n);
-void				ft_bzero(void *s, size_t n);
-int					ft_isalnum(int c);
-int					ft_isalpha(int c);
-int					ft_isascii(int c);
-int					ft_isdigit(int c);
-int					ft_isprint(int c);
-int					ft_isupper(int c);
-int					ft_islower(int c);
-int					ft_iswspace(char c);
-int					ft_sign(int n);
-int					ft_lentoc(char *s, char c);
-void				*ft_memcpy(void *dest, const void *src, size_t n);
-void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memchr(const void *s, int c, size_t n);
-int					ft_memcmp(const void *s1, const void *s2, size_t n);
-void				*ft_memmove(void *dest, const void *src, size_t n);
-void				*ft_memset(void *s, int c, size_t n);
-char				*ft_strcat(char *dest, const char *src);
-char				*ft_strncat(char *dest, const char *src, size_t n);
-size_t				ft_strlcat(char *dst, const char *src, size_t size);
-char				*ft_strrev(char *str);
-char				*ft_strchr(const char *s, int c);
-char				*ft_strrchr(const char *s, int c);
-int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strcpy(char *dest, const char *src);
-char				*ft_strncpy(char *dest, const char *src, size_t n);
-size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char				*ft_strdup(const char *s);
-char				*ft_strndup(const char *s, size_t n);
-char				*ft_strcdup(const char *s1, char c);
-size_t				ft_strlen(const char *s);
-char				*ft_strstr(const char *h, const char *n);
-char				*ft_strnstr(const char *h, const char *n, size_t len);
-int					ft_tolower(int c);
-int					ft_toupper(int c);
-void				*ft_memalloc(size_t size);
-void				ft_memdel(void **ap);
-char				*ft_strnew(size_t size);
-void				ft_strdel(char **as);
-void				ft_strclr(char *s);
-void				ft_striter(char *s, void (*f)(char *));
-void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const *s, char (*f)(char));
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1, char const *s2);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strcsub(char *s, char c);
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strtrim(char const *s);
-char				**ft_strsplit(char const *s, char c);
-void				ft_putchar(char c);
-void				ft_putstr(char const *s);
-void				ft_putendl(char const *s);
-void				ft_putnbr(int n);
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-t_list				*ft_lstnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int					ft_sizeofint(int n);
-void				*ft_calloc(size_t nmemb, size_t size);
-int					ft_gnl(const int fd, char **line);
-float				ft_sqrt(float x);
-int					ft_log2_64(uint64_t value);
-void				error(char *message);
+uint64_t			b_atonb(char *str, char c, uint64_t size);
+uint64_t			b_checknth(uint64_t nb, int n);
+uint64_t			b_highest(uint64_t nb, uint64_t size);
+uint64_t			b_lowest(uint64_t nb, uint64_t size);
+uint64_t			*b_fldinit(uint64_t size);
+uint64_t			b_fldcol(uint64_t *field, uint64_t col, uint64_t size);
+t_field				*b_flddup(t_field *src);
+t_field				*b_fldnew(uint64_t w, uint64_t h);
+int					b_fldfill(uint64_t *field, char *file, char one, \
+					uint64_t size);
+int					b_fldoverlap(t_field *board, t_field *field);
+int					b_fldcmp(t_field **f1, t_field **f2);
+void				b_fldprint(t_field *field);
+void				b_fldmoveleft(t_field *field, uint64_t steps);
+void				b_fldmoveright(t_field *field, uint64_t steps);
+void				b_fldmovedown(t_field *field, uint64_t steps);
+void				b_fldmoveup(t_field *field, uint64_t steps);
+void				b_fldsize(t_field *field);
+void				b_flddel(t_field *field);
+void				b_fldplus(t_field *board, t_field *field);
+void				b_fldminus(t_field *board, t_field *field);
+void				b_fldclear(t_field *field);
 
-uint64_t			b(char *str);
-uint64_t			readbits(char *str, char c, size_t size);
-uint64_t			checkbit(uint64_t nb, int n);
-size_t				highest_one(uint64_t nb, size_t size);
-size_t				lowest_one(uint64_t nb, size_t size);
-void				printbits(uint64_t nb, size_t size);
-uint64_t			*bf_init(size_t size);
-uint64_t			bf_column(uint64_t *field, size_t col, size_t size);
-t_field				*bf_dup(t_field *src);
-t_field				*bf_new(size_t w, size_t h);
-int					bf_fill(uint64_t *field, char *file, char one, size_t size);
-int					bf_overlap(t_field *board, t_field *field);
-int					bf_cmp(t_field **f1, t_field **f2);
-void				bf_print(t_field *field);
-void				bf_moveleft(t_field *field, size_t steps);
-void				bf_moveright(t_field *field, size_t steps);
-void				bf_movedown(t_field *field, size_t steps);
-void				bf_moveup(t_field *field, size_t steps);
-void				bf_fieldsize(t_field *field);
-void				bf_del(t_field *field);
-void				bf_fieldplus(t_field *board, t_field *field);
-void				bf_fieldminus(t_field *board, t_field *field);
-void				bf_clear(t_field *field);
-char				*bitoa(uint64_t nb, size_t len);
+int					c_atoi(const char *str);
+int					c_atoi_base(const char *str, int base);
+double				c_atof(const char *str);
+char				*c_itoa(int n);
+int					c_tolower(int c);
+int					c_toupper(int c);
+char				*c_bitoa(uint64_t nb, uint64_t len);
+uint64_t			c_atob(char *str);
 
-size_t				dl_len(t_dlist *node);
+uint64_t			dl_len(t_dlist *node);
 void				dl_putfirst(t_dlist **ref, void *new);
 void				dl_putlast(t_dlist **ref, void *new);
 void				dl_putbefore(t_dlist **ref, t_dlist *next, void *new);
@@ -157,10 +76,82 @@ void				dl_putafter(t_dlist **ref, t_dlist *prev, void *new);
 void				dl_print(t_dlist *node);
 void				dl_print_b(t_dlist *node);
 void				dl_del_node(t_dlist **ref, t_dlist *del);
-void				dl_del_node_at(t_dlist **ref, size_t pos);
+void				dl_del_node_at(t_dlist **ref, uint64_t pos);
 void				dl_del_last(t_dlist **ref);
-void				dl_rotate(t_dlist **head_ref, size_t n);
+void				dl_rotate(t_dlist **head_ref, uint64_t n);
 t_dlist				*dl_get_last(t_dlist **list);
 void				dl_del_list(t_dlist *ref);
+
+void				error(char *message);
+
+int					fd_readline(const int fd, char **line);
+void				fd_addchar(char c, int fd);
+void				fd_addstr(char const *s, int fd);
+void				fd_addendl(char const *s, int fd);
+void				fd_addnbr(int n, int fd);
+
+int					is_alnum(int c);
+int					is_alpha(int c);
+int					is_ascii(int c);
+int					is_digit(int c);
+int					is_print(int c);
+int					is_upper(int c);
+int					is_lower(int c);
+int					is_wspace(char c);
+int					is_neg(int n);
+
+float				m_sqrt(float n);
+int					m_log2(uint64_t n);
+int					m_intlen(uint64_t n);
+
+void				p_char(char c);
+void				p_str(char const *s);
+void				p_endl(char const *s);
+void				p_nbr(int n);
+void				p_bits(uint64_t nb, uint64_t size);
+
+char				*s_cat(char *dest, const char *src);
+char				*s_ncat(char *dest, const char *src, uint64_t n);
+uint64_t			s_lcat(char *dst, const char *src, uint64_t size);
+char				*s_rev(char *str);
+char				*s_chr(const char *s, int c);
+char				*s_rchr(const char *s, int c);
+int					s_cmp(const char *s1, const char *s2);
+int					s_ncmp(const char *s1, const char *s2, uint64_t n);
+char				*s_cpy(char *dest, const char *src);
+char				*s_ncpy(char *dest, const char *src, uint64_t n);
+uint64_t			s_lcpy(char *dst, const char *src, uint64_t dstsize);
+char				*s_dup(const char *s);
+char				*s_ndup(const char *s, uint64_t n);
+char				*s_cdup(const char *s1, char c);
+uint64_t			s_len(const char *s);
+char				*s_str(const char *h, const char *n);
+char				*s_nstr(const char *h, const char *n, uint64_t len);
+char				*s_new(uint64_t size);
+void				s_del(char **as);
+void				s_clr(char *s);
+void				s_iter(char *s, void (*f)(char *));
+void				s_iteri(char *s, void (*f)(unsigned int, char *));
+char				*s_map(char const *s, char (*f)(char));
+char				*s_mapi(char const *s, char (*f)(unsigned int, char));
+int					s_equ(char const *s1, char const *s2);
+int					s_nequ(char const *s1, char const *s2, uint64_t n);
+char				*s_sub(char const *s, unsigned int start, uint64_t len);
+char				*s_csub(char *s, char c);
+char				*s_join(char const *s1, char const *s2);
+char				*s_trim(char const *s);
+char				**s_split(char const *s, char c);
+int					s_lento(char *s, char c);
+
+void				*v_cpy(void *dest, const void *src, uint64_t n);
+void				*v_ccpy(void *dst, const void *src, int c, uint64_t n);
+void				*v_chr(const void *s, int c, uint64_t n);
+int					v_cmp(const void *s1, const void *s2, uint64_t n);
+void				*v_move(void *dest, const void *src, uint64_t n);
+void				*v_set(void *s, int c, uint64_t n);
+void				*v_alloc(uint64_t size);
+void				*v_calloc(uint64_t nmemb, uint64_t size);
+void				v_del(void **ap);
+void				v_bzero(void *s, uint64_t n);
 
 #endif
