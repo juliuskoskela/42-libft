@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/18 23:46:11 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 00:45:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,7 @@ char				*s_csub(char *s, char c);
 char				*s_join(char const *s1, char const *s2);
 char				*s_trim(char const *s);
 char				**s_split(char const *s, char c);
-int					s_lento(char *s, char c);
+int 				s_lento(char *s, char c);
 /*
 ** -----Void -------------------------------------------------------------------
 **
