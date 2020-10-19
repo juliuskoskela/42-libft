@@ -79,7 +79,7 @@ is_wspace
 #### math:
 
 m_intlen
-m_log2
+m_log
 m_sqrt
 
 #### print:

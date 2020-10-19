@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/10/16 22:17:18 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/10/20 02:53:25 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FLAG = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-FILES=$(shell find . -name "*.c")
+FILES=$(shell find src/ -name "*.c")
 
 OBJ=$(patsubst %.c, %.o, $(FILES))
 

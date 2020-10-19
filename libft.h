@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/19 20:50:19 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 02:55:28 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # define BUFF_SIZE 4
 # define MAX_FD 1024
+# define SQRTPREC 8
+# define POWPREC 0.000001
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -144,8 +146,13 @@ int					is_neg(int n);
 **
 **	Math functions.
 */
-float				m_sqrt(float n);
-int					m_log2(uint64_t n);
+double				m_sqrt(double n);
+int					m_log(uint64_t n);
+int					m_intlen(uint64_t n);
+double				m_fabs(double n);
+double				m_pow(double base, double exp);
+float				m_sin(float x, uint64_t p);
+uint64_t			m_fac(uint64_t n);
 /*
 **  ----------------------------------------------------------------------------
 **
