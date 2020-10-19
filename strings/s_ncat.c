@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:41 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:17:06 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,16 @@ char		*s_ncat(char *s1, const char *s2, uint64_t n)
 	s1[i + j] = '\0';
 	return (s1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_ncat
+**
+**	String catenate (n); appends a copy of `n` characters from the
+**	null-terminated string s2 to the end of the null-terminated string s1.
+**	The string s1 must have sufficient space to hold the result.
+**
+**  ----------------------------------------------------------------------------
+*/
+

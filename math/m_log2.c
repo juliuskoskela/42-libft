@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 16:26:55 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:46:11 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 19:24:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int					m_log2(uint64_t value)
+int					m_log2(uint64_t n)
 {
 	static uint64_t	x = 0x07EDD5E59A4E28C2;
 	static int		tab64[64] = {
@@ -25,11 +25,21 @@ int					m_log2(uint64_t value)
 	56, 45, 25, 31, 35, 16, 9, 12,
 	44, 24, 15, 8, 23, 7, 6, 5};
 
-	value |= value >> 1;
-	value |= value >> 2;
-	value |= value >> 4;
-	value |= value >> 8;
-	value |= value >> 16;
-	value |= value >> 32;
-	return (tab64[((uint64_t)((value - (value >> 1)) * x)) >> 58]);
+	n |= n >> 1;
+	n |= n >> 2;
+	n |= n >> 4;
+	n |= n >> 8;
+	n |= n >> 16;
+	n |= n >> 32;
+	return (tab64[((uint64_t)((n - (n >> 1)) * x)) >> 58]);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	M_log2
+**
+**	Calculate the base 2 logarithm of n.
+**
+**  ----------------------------------------------------------------------------
+*/

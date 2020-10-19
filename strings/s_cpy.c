@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:18 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 19:27:14 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,14 @@ char		*s_cpy(char *dst, const char *src)
 	dst[i] = '\0';
 	return (dst);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_cpy
+**
+**	String copy; copies the contents of `src` to `dst`. Destination string
+**	must be able to hold the contents of `src`.
+**
+**  ----------------------------------------------------------------------------
+*/

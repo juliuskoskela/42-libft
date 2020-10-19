@@ -108,7 +108,7 @@ s_join
 s_lcat
 s_lcpy
 s_len
-s_lento
+s_lenc
 s_map
 s_mapi
 s_ncat

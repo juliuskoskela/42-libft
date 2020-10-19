@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:04 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 20:09:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,17 @@ uint64_t		s_lcat(char *dst, const char *src, uint64_t size)
 		dst[j + k] = '\0';
 	return (j + s_len(src));
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_lcat
+**
+**	String catenate (l); Append `size` characters from `src` to the end of
+**	`dst`. Destination string must be able to hold the results
+**	(inc. NULL char).
+**
+**	Returns the size of the whole string after catenation.
+**
+**  ----------------------------------------------------------------------------
+*/

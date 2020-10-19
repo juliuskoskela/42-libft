@@ -1,0 +1,1 @@
+Fix s_cdup to malloc proper size.

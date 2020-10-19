@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:59 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:23:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 char		*s_ndup(const char *s, uint64_t n)
 {
-	char	*str;
+	char	*out;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
+	out = (char *)malloc(sizeof(char) * n + 1);
+	if (out == NULL)
 		return (NULL);
-	str = s_ncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
+	out = s_ncpy(out, s, n);
+	out[n] = '\0';
+	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_ndup
+**
+**	String duplicate (n); duplicate `n` characters from `s1`.
+**
+**	Returns a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:51 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:27:52 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 19:23:32 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,16 @@ char		*s_cat(char *s1, const char *s2)
 	*dst = '\0';
 	return (s1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_cat
+**
+**	The string catenate function appends a copy of the null-terminated
+**	string s2 to the end of the null-terminated string s1, then adds a
+**	terminating `\0'. The string s1 must have sufficient space to hold
+**	the result.
+**
+**  ----------------------------------------------------------------------------
+*/

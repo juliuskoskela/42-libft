@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:21:09 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,14 @@ char		*s_ncpy(char *dst, const char *src, uint64_t n)
 	}
 	return (dst);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_ncpy
+**
+**	String copy (n); copies `n` characters from`src` to `dst`. Destination
+**	string must be able to hold the contents of `src`.
+**
+**  ----------------------------------------------------------------------------
+*/

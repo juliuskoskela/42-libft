@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_intlen.c                                         :+:      :+:    :+:   */
+/*   s_lenc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 04:22:26 by jkoskela          #+#    #+#             */
+/*   Created: 2020/10/16 01:29:24 by jkoskela          #+#    #+#             */
 /*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int			m_intlen(uint64_t n)
+int				s_lenc(char *s, char c)
 {
-	int res;
+	uint64_t	i;
 
-	res = 1;
-	if (n < 0)
-		n = n * -1;
-	while (n > 9)
-	{
-		n = n / 10;
-		res++;
-	}
-	return (res);
+	i = 0;
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_lenc
+**
+**	String lenght (c); returns the lenght until the first occurence of `c` in
+**	the null terminated string `s`.
+**
+**  ----------------------------------------------------------------------------
+*/

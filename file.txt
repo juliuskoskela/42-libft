@@ -1,0 +1,15 @@
+-rw-r--r--   1 juliuskoskela  staff   1397 16 Oct 22:17 Makefile
+-rw-r--r--   1 juliuskoskela  staff   1087 16 Oct 02:05 README.md
+drwxr-xr-x  23 juliuskoskela  staff    736 19 Oct 03:31 bits
+drwxr-xr-x  10 juliuskoskela  staff    320 19 Oct 03:31 conversions
+drwxr-xr-x  14 juliuskoskela  staff    448 19 Oct 03:31 dlist
+drwxr-xr-x   3 juliuskoskela  staff     96 19 Oct 03:31 error
+drwxr-xr-x   7 juliuskoskela  staff    224 19 Oct 03:31 fd
+-rw-r--r--   1 juliuskoskela  staff      0 19 Oct 16:54 file.txt
+drwxr-xr-x  11 juliuskoskela  staff    352 19 Oct 03:31 istrue
+-rw-r--r--   1 juliuskoskela  staff  97112 18 Oct 23:56 libft.a
+-rw-r--r--@  1 juliuskoskela  staff   7370 19 Oct 04:07 libft.h
+drwxr-xr-x   4 juliuskoskela  staff    128 19 Oct 04:01 math
+drwxr-xr-x   7 juliuskoskela  staff    224 19 Oct 03:31 print
+drwxr-xr-x  34 juliuskoskela  staff   1088 19 Oct 03:31 strings
+drwxr-xr-x  12 juliuskoskela  staff    384 19 Oct 03:31 void

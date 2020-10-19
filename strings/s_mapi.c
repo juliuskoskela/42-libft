@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:34 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:29:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:12:44 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,17 @@ char		*s_mapi(char const *s, char (*f)(unsigned int, char))
 	d[n] = '\0';
 	return (d);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_mapi
+**
+**	String map; applies function `f` on all elements of string `out` and stores
+**	the results in string `out`. Unlike s_iter it passes the index as
+**	parameter to function `f`.
+**
+**	Returns a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

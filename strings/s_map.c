@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:29 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:29:30 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:04:46 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,30 @@
 char		*s_map(char const *s, char (*f)(char))
 {
 	unsigned int	n;
-	char			*d;
+	char			*out;
 
 	n = 0;
-	d = (char *)malloc(sizeof(char) * (s_len(s)) + 1);
-	if (d == NULL)
+	out = (char *)malloc(sizeof(char) * (s_len(s)) + 1);
+	if (out == NULL)
 		return (NULL);
 	while (s[n] != '\0')
 	{
-		d[n] = f(s[n]);
+		out[n] = f(s[n]);
 		n++;
 	}
-	d[n] = '\0';
-	return (d);
+	out[n] = '\0';
+	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_map
+**
+**	String map; applies function `f` on all elements of string `out` and stores
+**	the results in string `out`.
+**
+**	Returns a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

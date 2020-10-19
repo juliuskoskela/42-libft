@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:47:11 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 20:50:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,30 @@
 
 char			*s_cdup(const char *s1, char c)
 {
-	char		*str;
+	char		*out;
 	uint64_t	i;
 
 	i = 0;
-	str = (char *)malloc(sizeof(char) * s_len(s1) + 1);
-	if (str == NULL)
+	out = (char *)malloc(sizeof(char) * s_lenc(s1, c) + 1);
+	if (out == NULL)
 		return (NULL);
 	while (s1[i] && s1[i] != c)
 	{
-		str[i] = s1[i];
+		out[i] = s1[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	out[i] = '\0';
+	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_cdup
+**
+**	Duplicate contents from outing `s1` until delimiting character `c`.
+**
+**	Returns a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

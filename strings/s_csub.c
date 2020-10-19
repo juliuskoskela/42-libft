@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:47:06 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 20:50:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,30 @@
 
 char			*s_csub(char *s, char c)
 {
-	char		*tmp;
+	char		*out;
 	uint64_t	i;
 	uint64_t	j;
 	uint64_t	len;
 
-	i = s_lento(s, c) + 1;
+	i = s_lenc(s, c) + 1;
 	j = 0;
 	len = s_len(s) - i;
-	tmp = s_new(len + 1);
+	out = s_new(len + 1);
 	while (s[i])
-		tmp[j++] = s[i++];
-	tmp[j] = '\0';
-	return (tmp);
+		out[j++] = s[i++];
+	out[j] = '\0';
+	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_sub
+**
+**	Substring duplicate from; Duplicate contents of `s` starting from char `c`
+**	until the end of `s`.
+**
+**	Return a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

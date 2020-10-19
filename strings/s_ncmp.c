@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:46 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:43:12 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:19:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,17 @@ int			s_ncmp(const char *s1, const char *s2, uint64_t n)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_ncmp
+**
+**	String compare (n); lexicographically compares `n` characters in the
+**	null-terminated strings `s1` and `s2`.
+**
+**	Returns 0 if strings are identical. Otherwise it returns the difference
+**	(in integers) between the first non-matching characters in the strings.
+**
+**  ----------------------------------------------------------------------------
+*/

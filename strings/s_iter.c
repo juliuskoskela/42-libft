@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:46 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/16 01:28:46 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:23:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,14 @@ void		s_iter(char *s, void (*f)(char *))
 		n++;
 	}
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_iter
+**
+**	Perform function `f` (that takes an argument of type `char *`) passed as
+**	a function pointer on all elements of string `s`.
+**
+**  ----------------------------------------------------------------------------
+*/
