@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 03:25:23 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 04:37:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char				*c_itoa(int n);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
-uint64_t			c_atob(char *str);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -147,12 +146,15 @@ int					is_neg(int n);
 **	Math functions.
 */
 double				m_sqrt(double n);
-int					m_log(uint64_t n);
-int					m_intlen(uint64_t n);
+int64_t				m_log(int64_t n);
+int					m_intlen(int64_t n);
 double				m_fabs(double n);
 double				m_pow(double base, double exp);
-float				m_sin(float x, uint64_t p);
-uint64_t			m_fac(uint64_t n);
+float				m_sin(float x, int64_t p);
+int64_t				m_fac(int64_t n);
+uint64_t			m_prime(uint64_t n);
+uint64_t			m_nextprime(uint64_t n);
+t_dlist				*m_primefac(uint64_t n);
 /*
 **  ----------------------------------------------------------------------------
 **

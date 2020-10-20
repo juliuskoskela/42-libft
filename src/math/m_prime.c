@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_atob.c                                           :+:      :+:    :+:   */
+/*   m_prime.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 19:17:32 by esukava           #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/20 03:52:37 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/10/20 04:10:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-uint64_t		c_atob(char *str)
+uint64_t		m_prime(uint64_t n)
 {
 	uint64_t	i;
-	uint64_t	size;
-	uint64_t	nb;
 
-	i = 0;
-	nb = 0;
-	size = s_len(str);
-	while (i < size)
+	i = 5;
+	if (n <= 3)
+		return (1);
+	else if (n % 2 == 0 || n % 3 == 0)
+		return (0);
+	while (i * i <= n)
 	{
-		if (str[i] == '1')
-			nb |= 1 << i;
-		if (str[i] != '1' && str[i] != '0')
+		if (n % i == 0 || n % (i + 2) == 0)
 			return (0);
-		i++;
+		i = i + 6;
 	}
-	return (nb);
+	return (1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	M_prime
+**
+**	Calculate if `n` is a prime number and return 1 if so.
+**
+**  ----------------------------------------------------------------------------
+*/

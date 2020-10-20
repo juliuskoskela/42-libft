@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:10:04 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:58:11 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-uint64_t		m_fac(uint64_t n)
+int64_t			m_fac(int64_t n)
 {
-	uint64_t	i;
-	uint64_t	fac;
+	int64_t		i;
+	int64_t		fac;
 
 	i = 1;
 	fac = 1;

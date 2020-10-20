@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_intlen.c                                         :+:      :+:    :+:   */
+/*   m_nextprime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 04:22:26 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 03:58:29 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/20 03:54:56 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/10/20 04:11:06 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int			m_intlen(int64_t n)
+uint64_t		m_nextprime(uint64_t n)
 {
-	int		res;
-
-	res = 1;
-	if (n < 0)
-		n = n * -1;
-	while (n > 9)
-	{
-		n = n / 10;
-		res++;
-	}
-	return (res);
+	if (m_prime(n))
+		n++;
+	while (m_prime(n) == 0)
+		n++;
+	return (n);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	M_intlen
+**	M_nextprime
 **
-**	Calculate the lenght of an integer in base 10.
+**	Calculate the next prime number from `n` (even if `n` is prime).
 **
 **  ----------------------------------------------------------------------------
 */
