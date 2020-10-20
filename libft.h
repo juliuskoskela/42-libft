@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 04:37:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 10:19:41 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void				b_fldclear(t_field *field);
 int					c_atoi(const char *str);
 int					c_atoi_base(const char *str, int base);
 double				c_atof(const char *str);
-char				*c_itoa(int n);
+char				*c_itoa(int64_t n)
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);

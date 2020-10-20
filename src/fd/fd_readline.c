@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 10:04:50 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,15 @@ int				fd_readline(const int fd, char **line)
 	}
 	return (readbuf(&mem[fd], &*line, fd));
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Fd_readline
+**
+**	Read a line from a file and put the line into the string `line` passed
+**	by reference. Subsequent calls to the function will get the next line
+**	untill end of file or if file descriptor is closed.
+**
+**  ----------------------------------------------------------------------------
+*/

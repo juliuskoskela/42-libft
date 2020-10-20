@@ -6,17 +6,17 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:17 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 09:47:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-char		*c_itoa(int n)
+char			*c_itoa(int64_t n)
 {
-	char	*str;
-	int		size;
-	int		sign;
+	char		*str;
+	int64_t		size;
+	int64_t		sign;
 
 	size = m_intlen(n);
 	sign = is_neg(n);
@@ -39,3 +39,13 @@ char		*c_itoa(int n)
 	}
 	return (str);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	C_itoa
+**
+**	Convert an int into a string.
+**
+**  ----------------------------------------------------------------------------
+*/

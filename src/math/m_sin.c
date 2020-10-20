@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:01:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 04:10:38 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 09:31:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ float			m_sin(float x, int64_t p)
 {
 	float		q;
 	float		sum;
-	int64_t	i;
-	int64_t	j;
+	int64_t		i;
+	int64_t		j;
 
 	q = x;
 	sum = 0;
