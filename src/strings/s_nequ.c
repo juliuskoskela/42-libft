@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:04 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:06:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,19 @@
 int			s_nequ(char const *s1, char const *s2, uint64_t n)
 {
 	if (s1 == NULL || s2 == NULL)
-		return (0);
-	if (!s_ncmp(s1, s2, n))
 		return (1);
-	return (0);
+	if (!s_ncmp(s1, s2, n))
+		return (0);
+	return (1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_nequ
+**
+**	String equal (n); compares `n` characters from strings `s1` and `s2`
+**	and returns 1 if the strings are equal.
+**
+**  ----------------------------------------------------------------------------
+*/

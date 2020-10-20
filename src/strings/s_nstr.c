@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:15 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:17:26 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,16 @@ char		*s_nstr(const char *h, const char *n, uint64_t len)
 	}
 	return (NULL);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_nstr
+**
+**	Locate substring (n); function locates the first occurrence of the
+**	null-terminated string `n` in the string `h`, where not more than len
+**	characters are searched.  Characters that appear after a `\0' character
+**	are not searched.
+**
+**  ----------------------------------------------------------------------------
+*/

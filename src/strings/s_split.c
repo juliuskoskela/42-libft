@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:14:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,16 @@ char				**s_split(char const *s, char c)
 	tab = ft_splitaux(s, c, tab);
 	return (tab);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_split
+**
+**	Split the string `s` by the delimiting character `c` into an array of
+**	strings `tab`.
+**
+**	Returns an array of strings.
+**
+**  ----------------------------------------------------------------------------
+*/

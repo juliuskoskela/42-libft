@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:17:09 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,18 @@ char		*s_trim(char const *s)
 	str[k] = '\0';
 	return (str);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_trim
+**
+**	Allocates (with malloc(3)) and returns a copy of the string given as
+**	argument without whitespaces at the beginning or at the end of the string.
+**	Will be considered as whitespaces the following characters ’ ’, ’\n’ and
+**	’\t’. If s has no whites- paces at the beginning or at the end, the
+**	function returns a copy of s. If the allocation fails the function
+**	returns NULL.
+**
+**  ----------------------------------------------------------------------------
+*/
