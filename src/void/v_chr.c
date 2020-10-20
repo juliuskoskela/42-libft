@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:19 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:39:13 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,17 @@ void		*v_chr(const void *s, int c, uint64_t n)
 	}
 	return (NULL);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	V_chr
+**
+**	Void memory search; function locates the first occurrence of `c`
+**	(converted to an unsigned char) in string `s`.
+**
+**	The `v_chr` function returns a pointer to the byte located, or NULL if
+**	no such byte exists within `n` bytes.
+**
+**  ----------------------------------------------------------------------------
+*/

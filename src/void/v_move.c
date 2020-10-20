@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:35:29 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,15 @@ void		*v_move(void *dest, const void *src, uint64_t n)
 			*(unsigned char *)(dest + n) = *(unsigned char *)(src + n);
 	return (dest);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	V_move
+**
+**	Void memory move; copies `len` bytes from string `src` to string `dst`.
+**	The two strings may overlap; the copy is always done in a non-destructive
+**	manner.
+**
+**  ----------------------------------------------------------------------------
+*/

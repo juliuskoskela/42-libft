@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:39:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,17 @@ void		*v_ccpy(void *dst, const void *src, int c, uint64_t n)
 	}
 	return (NULL);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	V_ccpy
+**
+**	Void memory copy (c); copies bytes from string src to string dst.  If
+**	the character c (as converted to an unsigned char) occurs in the string
+**	src, the copy stops and a pointer to the byte after the copy of c in the
+**	string dst is returned.  Otherwise, n bytes are copied, and a NULL
+**	pointer is returned.
+**
+**  ----------------------------------------------------------------------------
+*/

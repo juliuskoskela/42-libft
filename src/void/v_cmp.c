@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 02:52:17 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/20 03:41:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,19 @@ int			v_cmp(const void *s1, const void *s2, uint64_t n)
 	}
 	return (0);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	V_chr
+**
+**	Void memory compare; compares byte string `s1` against byte string `s2`.
+**	Both strings are assumed to be n bytes long.
+**
+**	The `v_chr` function returns zero if the two strings are identical, oth-
+**	erwise returns the difference between the first two differing bytes
+**	(treated as unsigned char values, so that `\200' is greater than `\0',
+**	for example). Zero-length strings are always identical.
+**
+**  ----------------------------------------------------------------------------
+*/
