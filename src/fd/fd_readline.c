@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 10:04:50 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "../../inc/libft.h"
 
 static int		eof(char **mem, char **line, int r)
 {

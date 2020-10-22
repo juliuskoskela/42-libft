@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:24:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 09:44:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "../../inc/libft.h"
 
 static int		verify_base_nbr(char c, int base)
 {
@@ -20,7 +20,7 @@ static int		verify_base_nbr(char c, int base)
 	(c >= 'a' && c <= ('a' + base - 10)));
 }
 
-int				c_atoi_base(const char *str, int base)
+int				c_atoi_base(const char *str, int64_t base)
 {
 	uint64_t	i;
 	int64_t		nbr;
@@ -51,9 +51,9 @@ int				c_atoi_base(const char *str, int base)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_atoi_base
+**	C_itoa_base
 **
-**	Convert a string to base `base`.
+**	Convert an integer to base `base` and output a string.
 **
 **  ----------------------------------------------------------------------------
 */

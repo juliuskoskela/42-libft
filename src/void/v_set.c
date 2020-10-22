@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 03:27:48 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "../../inc/libft.h"
 
 void		*v_set(void *s, int c, uint64_t n)
 {

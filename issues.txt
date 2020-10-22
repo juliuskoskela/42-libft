@@ -1,2 +1,0 @@
-** Fix s_cdup to malloc proper size.
-M_pow return 2^6 = 63.999997dl_print datatype

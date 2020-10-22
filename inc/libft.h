@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/20 10:19:41 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/22 22:12:03 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ void				b_fldclear(t_field *field);
 **	Functions for handling conversions.
 */
 int					c_atoi(const char *str);
-int					c_atoi_base(const char *str, int base);
+int					c_atoi_base(const char *str, int64_t base);
 double				c_atof(const char *str);
-char				*c_itoa(int64_t n)
+char				*c_itoa(int64_t n);
+char				*ft_itoa_base(int64_t value, int64_t base);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);

@@ -1,35 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dl_del_last.c                                      :+:      :+:    :+:   */
+/*   c_itoa_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/28 15:06:51 by jkoskela          #+#    #+#             */
+/*   Created: 2020/10/22 22:03:35 by jkoskela          #+#    #+#             */
 /*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		dl_del_last(t_dlist **ref)
+char			*c_itoa_base(int64_t nbr, int64_t base)
 {
-	t_dlist	*current;
+	char		*str;
+	int64_t		power;
+	int64_t		i;
+	int64_t		j;
 
-	if (*ref == NULL)
-		return ;
-	current = *ref;
-	while (current->next)
-		current = current->next;
-	dl_del_node(ref, current);
+	power = 1;
+	i = 0;
+	j = 0;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		i++;
+	}
+	while(nbr >= power * base)
+	{
+		power *= base;
+		j++;
+	}
+	str = malloc(sizeof(str) * (i + j + 1));
+	if (i)
+		str[i - 1] = '-';
+	while (power)
+	{
+		str[i] = (nbr / power) + (nbr / power > 9 ? 'A' - 10 : '0');
+		nbr = nbr % power;
+		power = power / base;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Dl_del_last
-**
-**	Delete las node in the list.
-**
-**  ----------------------------------------------------------------------------
-*/
