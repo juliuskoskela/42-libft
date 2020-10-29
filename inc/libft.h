@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/22 22:12:03 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/29 20:18:00 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int					c_atoi(const char *str);
 int					c_atoi_base(const char *str, int64_t base);
 double				c_atof(const char *str);
 char				*c_itoa(int64_t n);
-char				*ft_itoa_base(int64_t value, int64_t base);
+char				*c_itoa_base(uint64_t nb, uint64_t base);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
@@ -156,6 +156,7 @@ int64_t				m_fac(int64_t n);
 uint64_t			m_prime(uint64_t n);
 uint64_t			m_nextprime(uint64_t n);
 t_dlist				*m_primefac(uint64_t n);
+size_t				m_digits_base(uint64_t nb, uint64_t base);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -168,6 +169,7 @@ void				p_str(char const *s);
 void				p_endl(char const *s);
 void				p_nbr(int n);
 void				p_bits(uint64_t nb, uint64_t size);
+void				p_dlist_s(t_dlist **list);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -207,6 +209,7 @@ char				*s_join(char const *s1, char const *s2);
 char				*s_trim(char const *s);
 char				**s_split(char const *s, char c);
 int					s_lenc(char *s, char c);
+int					s_sum(char *str);
 /*
 **  ----------------------------------------------------------------------------
 **

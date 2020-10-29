@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_itoa_base.c                                      :+:      :+:    :+:   */
+/*   p_dlist_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 22:03:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/29 01:32:30 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/29 02:57:01 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/10/29 17:33:07 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_itoa_base(uint64_t nb, uint64_t base)
+void			p_dlist_s(t_dlist **list)
 {
-	size_t		i;
-	char		*out;
-	char		*tab;
-
-	i = 0;
-	out = s_new(m_digits_base(nb, base) + 1);
-	tab = "0123456789abcdef";
-	if (base > 16 || base < 2)
-		return (NULL);
-	while (nb > base)
+	if (!(*list))
+		p_str("error: `NULL` pointer in p_dlist_s.\n");
+	while (*list)
 	{
-		out[i] = tab[nb % base];
-		nb = nb / base;
-		i++;
+		p_str((char *)(*list)->content);
+		p_char('\n');
+		*list = (*list)->next;
 	}
-	out[i] = tab[nb % base];
-	out[i + 1] = '\0';
-	return (s_rev(out));
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_itoa_base
+**	P_dlist_s
 **
-**	Convert `nb` base 10 converted to a string of characters in base `base`.
+**	Print the contents of list with void content as char strings.
 **
 **  ----------------------------------------------------------------------------
 */

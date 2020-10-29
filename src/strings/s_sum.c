@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_itoa_base.c                                      :+:      :+:    :+:   */
+/*   s_sum.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 22:03:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/29 01:32:30 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/29 20:15:15 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/10/29 20:16:41 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_itoa_base(uint64_t nb, uint64_t base)
+int			s_sum(char *str)
 {
-	size_t		i;
-	char		*out;
-	char		*tab;
+	int		out;
+	int		i;
 
+	out = 0;
 	i = 0;
-	out = s_new(m_digits_base(nb, base) + 1);
-	tab = "0123456789abcdef";
-	if (base > 16 || base < 2)
-		return (NULL);
-	while (nb > base)
+	while (str[i])
 	{
-		out[i] = tab[nb % base];
-		nb = nb / base;
+		out += str[i];
 		i++;
 	}
-	out[i] = tab[nb % base];
-	out[i + 1] = '\0';
-	return (s_rev(out));
+	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_itoa_base
+**	S_sum
 **
-**	Convert `nb` base 10 converted to a string of characters in base `base`.
+**	Return the sum of all elements in string `str`.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/10/22 23:56:48 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/10/29 20:18:16 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,11 +88,13 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_primefac.c \
 			math/m_sin.c \
 			math/m_sqrt.c \
+			math/m_digits_base.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \
 			print/p_nbr.c \
 			print/p_str.c \
+			print/p_dlist_s.c \
 			strings/s_cat.c \
 			strings/s_cdup.c \
 			strings/s_chr.c \
@@ -125,6 +127,7 @@ SRC_BASE =	bits/b_atonb.c \
 			strings/s_str.c \
 			strings/s_sub.c \
 			strings/s_trim.c \
+			strings/s_sum.c \
 			void/v_alloc.c \
 			void/v_bzero.c \
 			void/v_calloc.c \
