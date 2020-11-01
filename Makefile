@@ -6,14 +6,14 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/10/29 20:18:16 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/11/01 22:17:41 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 
 CC			?=	gcc
-FLAGS		=	-Wall -Wextra -Werror -O3 -D FULL_LIBFT
+FLAGS		=	-g -Wall -Wextra -Werror -O3 -D FULL_LIBFT
 
 LEN_NAME	=	`printf "%s" $(NAME) |wc -c`
 DELTA		=	$$(echo "$$(tput cols)-32-$(LEN_NAME)"|bc)
@@ -88,7 +88,9 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_primefac.c \
 			math/m_sin.c \
 			math/m_sqrt.c \
-			math/m_digits_base.c \
+			math/m_dcnt.c \
+			math/m_ceil.c \
+			math/m_floor.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \

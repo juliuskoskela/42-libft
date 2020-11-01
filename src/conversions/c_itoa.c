@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:17 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/31 23:22:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char			*c_itoa(int64_t n)
 	str = (char *)v_alloc(size + 1 + sign);
 	if (!str)
 		return (NULL);
-	if (n == -2147483648)
-		return (s_cpy(str, "-2147483648"));
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -46,6 +44,11 @@ char			*c_itoa(int64_t n)
 **	C_itoa
 **
 **	Convert an int into a string.
+**
+**	Add for compatibility:
+**
+**	if (n == -2147483648)
+**		return (s_cpy(str, "-2147483648"));
 **
 **  ----------------------------------------------------------------------------
 */

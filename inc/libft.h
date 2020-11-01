@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/29 20:18:00 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/01 22:21:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define MAX_FD 1024
 # define SQRTPREC 8
 # define POWPREC 0.000001
+# define ABS(X)  ((X >= 0)? X : -(x))
+# define ROUND(X)  (X >= 0)? (int)(X + 0.5) : (int) - (ABS(X) + 0.5)
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -77,7 +79,7 @@ int					c_atoi(const char *str);
 int					c_atoi_base(const char *str, int64_t base);
 double				c_atof(const char *str);
 char				*c_itoa(int64_t n);
-char				*c_itoa_base(uint64_t nb, uint64_t base);
+char				*c_itoa_base(int64_t nb, int64_t base);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
@@ -151,12 +153,14 @@ int64_t				m_log(int64_t n);
 int					m_intlen(int64_t n);
 double				m_fabs(double n);
 double				m_pow(double base, double exp);
-float				m_sin(float x, int64_t p);
+double				m_sin(double x, int64_t p);
 int64_t				m_fac(int64_t n);
 uint64_t			m_prime(uint64_t n);
 uint64_t			m_nextprime(uint64_t n);
 t_dlist				*m_primefac(uint64_t n);
-size_t				m_digits_base(uint64_t nb, uint64_t base);
+size_t				m_dcnt(uint64_t nb, uint64_t base);
+double				m_ceil(double f);
+double				m_floor(double x);
 /*
 **  ----------------------------------------------------------------------------
 **

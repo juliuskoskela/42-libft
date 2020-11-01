@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_digits_base.c                                    :+:      :+:    :+:   */
+/*   m_dcnt.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../inc/libft.h"
 
-size_t		m_digits_base(uint64_t nb, uint64_t base)
+size_t		m_dcnt(uint64_t nb, uint64_t base)
 {
 	return ((uint64_t)((m_log(nb) / m_log(base)) + 1));
 }

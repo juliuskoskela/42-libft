@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:01:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/01 22:18:57 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-float			m_sin(float x, int64_t p)
+double			m_sin(double x, int64_t p)
 {
-	float		q;
-	float		sum;
+	double		q;
+	double		sum;
 	int64_t		i;
 	int64_t		j;
 

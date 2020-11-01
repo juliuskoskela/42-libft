@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:01:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/29 03:06:37 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/10/30 14:09:38 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int				s_lenc(char *s, char c)
 	uint64_t	i;
 
 	i = 0;
+	if (!s[i])
+		return (0);
 	while (s[i])
 	{
 		if (s[i] == c)
