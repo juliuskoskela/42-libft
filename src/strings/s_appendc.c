@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_iter.c                                           :+:      :+:    :+:   */
+/*   s_appendc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:28:46 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/02 03:33:32 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/02 06:05:50 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/11/02 06:21:41 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void			s_iter(char **ref, int (*fptr)(int c))
+char			*s_appendc(char *str, char c)
 {
-	int			i;
-	int			size;
+	char	*out;
 
-	i = 0;
-	size = s_len(*ref);
-	while (i < size)
-	{
-		(*ref)[i] = fptr((*ref)[i]);
-		i++;
-	}
+	out = NULL;
+	if (!str)
+		out = s_ndup(&c, 1);
+	else
+		s_join(str, s_ndup(&c, 1));
+	return (out);
 }
-
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	S_iter
+**	S_appendc
 **
-**	Perform function `f` (that takes an argument of type `char *`) passed as
-**	a function pointer on all elements of string `s`.
+**	Append char `c` to the end of `str`. If `str` is empty create it.
 **
 **  ----------------------------------------------------------------------------
 */

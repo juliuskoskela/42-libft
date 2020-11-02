@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:53:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/01 22:18:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/02 01:30:32 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double			m_ceil(double f)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	M__m_ceil
+**	M_ceil
 **
 **	Ceiling function maps to the least integer greater than or equal to
 **

@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_iter.c                                           :+:      :+:    :+:   */
+/*   c_ftoe.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:28:46 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/02 03:33:32 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/02 08:16:06 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/11/02 08:16:15 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void			s_iter(char **ref, int (*fptr)(int c))
+char			*c_ftoe(double nbr)
 {
+	char		*out;
 	int			i;
-	int			size;
 
 	i = 0;
-	size = s_len(*ref);
-	while (i < size)
+	while (nbr >= 10.0)
 	{
-		(*ref)[i] = fptr((*ref)[i]);
+		nbr /= 10;
 		i++;
 	}
+	out = c_ftoa(nbr, 6);
+	out = s_join(out, "e+0");
+	return (s_join(out, c_itoa(i)));
 }
-
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	S_iter
-**
-**	Perform function `f` (that takes an argument of type `char *`) passed as
-**	a function pointer on all elements of string `s`.
-**
-**  ----------------------------------------------------------------------------
-*/

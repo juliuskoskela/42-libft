@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/01 22:21:22 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/02 08:16:39 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 # define LIBFT_H
 # define BUFF_SIZE 4
 # define MAX_FD 1024
-# define SQRTPREC 8
+# define SQRTPREC 64
 # define POWPREC 0.000001
 # define ABS(X)  ((X >= 0)? X : -(x))
 # define ROUND(X)  (X >= 0)? (int)(X + 0.5) : (int) - (ABS(X) + 0.5)
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+
+typedef union		s_double
+{
+	double			f;
+	uint64_t		i;
+}					t_double;
 
 typedef struct		s_field
 {
@@ -83,6 +89,8 @@ char				*c_itoa_base(int64_t nb, int64_t base);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
+char				*c_ftoa(double nbr, size_t p);
+char				*c_ftoe(double nbr);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -161,6 +169,7 @@ t_dlist				*m_primefac(uint64_t n);
 size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
+double				m_modf(double x, double *iptr);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -201,7 +210,7 @@ char				*s_nstr(const char *h, const char *n, uint64_t len);
 char				*s_new(uint64_t size);
 void				s_del(char **as);
 void				s_clr(char *s);
-void				s_iter(char *s, void (*f)(char *));
+void				s_iter(char **ref, int (*fptr)(int c));
 void				s_iteri(char *s, void (*f)(unsigned int, char *));
 char				*s_map(char const *s, char (*f)(char));
 char				*s_mapi(char const *s, char (*f)(unsigned int, char));
@@ -214,6 +223,7 @@ char				*s_trim(char const *s);
 char				**s_split(char const *s, char c);
 int					s_lenc(char *s, char c);
 int					s_sum(char *str);
+char				*s_appendc(char *str, char c);
 /*
 **  ----------------------------------------------------------------------------
 **
