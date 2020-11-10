@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/02 08:16:39 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/04 04:02:16 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-typedef union		s_double
+typedef union		u_double
 {
 	double			f;
 	uint64_t		i;
@@ -38,6 +38,7 @@ typedef struct		s_field
 	uint64_t		x;
 	uint64_t		y;
 }					t_field;
+
 typedef struct		s_dlist
 {
 	void			*content;
@@ -104,7 +105,7 @@ void				dl_putfirst(t_dlist **ref, void *new);
 void				dl_putlast(t_dlist **ref, void *new);
 void				dl_putbefore(t_dlist **ref, t_dlist *next, void *new);
 void				dl_putafter(t_dlist **ref, t_dlist *prev, void *new);
-void				dl_print(t_dlist *node);
+void				dl_print_s(t_dlist *node);
 void				dl_print_b(t_dlist *node);
 void				dl_del_node(t_dlist **ref, t_dlist *del);
 void				dl_del_node_at(t_dlist **ref, uint64_t pos);
@@ -137,7 +138,7 @@ void				fd_addnbr(int n, int fd);
 **
 **	Istrue
 **
-**	Functions that return 1 if the input is as described in the
+**	Functions that return 1 if the in is as described in the
 **	funtion name or 0 otherwise.
 */
 int					is_alnum(int c);
@@ -224,6 +225,9 @@ char				**s_split(char const *s, char c);
 int					s_lenc(char *s, char c);
 int					s_sum(char *str);
 char				*s_appendc(char *str, char c);
+void				s_ctoc(char *str, int from, int to);
+char				*s_newc(size_t size, int c);
+char				*s_join_free(char *s1, char *s2, size_t flag);
 /*
 **  ----------------------------------------------------------------------------
 **

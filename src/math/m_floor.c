@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:05:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/02 01:30:24 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/03 17:07:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 double			m_floor(double x)
 {
 	double		xcopy;
-	int64_t	zeros;
+	int64_t		zeros;
 	double		n;
 
 	xcopy = x < 0 ? x * -1 : x;

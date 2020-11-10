@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 22:03:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/01 01:56:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/11/04 04:43:15 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char			*c_itoa_base(int64_t nb, int64_t base)
 		i++;
 	}
 	out[i] = tab[nb % base];
-	out = sign == 1 ? s_rev(out) : s_join("-", s_rev(out));
+	out = sign == 1 ? s_rev(out) : s_join_free("-", s_rev(out), 2);
 	return (out);
 }
 

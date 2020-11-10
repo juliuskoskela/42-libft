@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/11/01 22:17:41 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/11/04 01:09:22 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,8 @@ SRC_BASE =	bits/b_atonb.c \
 			conversions/c_itoa_base.c \
 			conversions/c_tolower.c \
 			conversions/c_toupper.c \
+			conversions/c_ftoa.c \
+			conversions/c_ftoe.c \
 			dlist/dl_del_last.c \
 			dlist/dl_del_list.c \
 			dlist/dl_del_node.c \
@@ -91,6 +93,7 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_dcnt.c \
 			math/m_ceil.c \
 			math/m_floor.c \
+			math/m_modf.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \
@@ -130,6 +133,10 @@ SRC_BASE =	bits/b_atonb.c \
 			strings/s_sub.c \
 			strings/s_trim.c \
 			strings/s_sum.c \
+			strings/s_appendc.c \
+			strings/s_ctoc.c \
+			strings/s_newc.c \
+			strings/s_join_free.c \
 			void/v_alloc.c \
 			void/v_bzero.c \
 			void/v_calloc.c \

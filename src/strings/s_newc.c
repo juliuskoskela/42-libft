@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dl_print.c                                         :+:      :+:    :+:   */
+/*   s_newc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/28 15:03:52 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 04:02:12 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/03 05:55:44 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/11/03 05:55:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		dl_print_s(t_dlist *node)
+char			*s_newc(size_t size, int c)
 {
-	t_dlist	*last;
-	t_field	*tmp;
+	char		*out;
+	size_t		i;
 
-	while (node != NULL)
+	out = s_new(size);
+	i = 0;
+	while (i < size)
 	{
-		tmp = node->content;
-		p_str(node->content);
-		last = node;
-		node = node->next;
+		out[i] = c;
+		i++;
 	}
+	return (out);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Dl_print
-**
-**	Print list.
-**
-**  ----------------------------------------------------------------------------
-*/

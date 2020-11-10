@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dl_print.c                                         :+:      :+:    :+:   */
+/*   s_join_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/28 15:03:52 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 04:02:12 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/04 01:05:39 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/11/04 01:08:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		dl_print_s(t_dlist *node)
+char		*s_join_free(char *s1, char *s2, size_t flag)
 {
-	t_dlist	*last;
-	t_field	*tmp;
+	char	*out;
 
-	while (node != NULL)
+	out = s_join(s1, s2);
+	if (flag == 1)
+		free(s1);
+	else if (flag == 2)
+		free(s2);
+	else if (flag == 3)
 	{
-		tmp = node->content;
-		p_str(node->content);
-		last = node;
-		node = node->next;
+		free(s1);
+		free(s2);
 	}
+	return (out);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Dl_print
-**
-**	Print list.
-**
-**  ----------------------------------------------------------------------------
-*/

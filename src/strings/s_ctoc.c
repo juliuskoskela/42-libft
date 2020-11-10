@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dl_print.c                                         :+:      :+:    :+:   */
+/*   s_ctoc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/28 15:03:52 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 04:02:12 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/03 05:54:35 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/11/03 05:54:47 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		dl_print_s(t_dlist *node)
+void			s_ctoc(char *str, int from, int to)
 {
-	t_dlist	*last;
-	t_field	*tmp;
+	size_t		i;
 
-	while (node != NULL)
+	i = s_len(str);
+	while (i--)
 	{
-		tmp = node->content;
-		p_str(node->content);
-		last = node;
-		node = node->next;
+		if (str[i] == from)
+			str[i] = to;
 	}
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Dl_print
-**
-**	Print list.
-**
-**  ----------------------------------------------------------------------------
-*/
