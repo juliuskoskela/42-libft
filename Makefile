@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/11/04 01:09:22 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/12/04 20:04:25 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,7 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_prime.c \
 			math/m_primefac.c \
 			math/m_sin.c \
+			math/m_cos.c \
 			math/m_sqrt.c \
 			math/m_dcnt.c \
 			math/m_ceil.c \

@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_sin.c                                            :+:      :+:    :+:   */
+/*   m_cos.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:01:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/04 20:01:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/04 20:03:37 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			m_sin(double x, int64_t p)
+double			m_cos(double x, int64_t p)
 {
-	double		q;
-	double		sum;
-	int64_t		i;
-	int64_t		j;
-
-	q = x;
-	sum = 0;
-	x = x * (PI / 180);
-	i = 1;
-	j = 1;
-	while (i <= p)
-	{
-		if (i % 2 != 0)
-			sum = sum + m_pow(x, j) / m_fac(j);
-		else
-			sum = sum - m_pow(x, j) / m_fac(j);
-		i++;
-		j = j + 2;
-	}
-	return (sum);
+	return (m_sin(PI / 2 - x, p));
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	M_sin
+**	M_cos
+**	Calculate cosine of `x` with precision `p`.
 **
-**	Calculate sine of `x` with precision `p`.
+**	Idea for optimization; save both sine and cosine when each is invoked.
 **
 **  ----------------------------------------------------------------------------
 */

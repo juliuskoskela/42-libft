@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 04:02:16 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/04 20:04:10 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define MAX_FD 1024
 # define SQRTPREC 64
 # define POWPREC 0.000001
+# define PI 3.14159265359
 # define ABS(X)  ((X >= 0)? X : -(x))
 # define ROUND(X)  (X >= 0)? (int)(X + 0.5) : (int) - (ABS(X) + 0.5)
 # include <stdlib.h>
@@ -163,6 +164,7 @@ int					m_intlen(int64_t n);
 double				m_fabs(double n);
 double				m_pow(double base, double exp);
 double				m_sin(double x, int64_t p);
+double				m_cos(double x, int64_t p);
 int64_t				m_fac(int64_t n);
 uint64_t			m_prime(uint64_t n);
 uint64_t			m_nextprime(uint64_t n);
