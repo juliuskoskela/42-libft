@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/04 20:04:10 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/10 10:06:33 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ typedef union		u_double
 	double			f;
 	uint64_t		i;
 }					t_double;
+
+typedef struct		s_vertex
+{
+	double			x;
+	double			y;
+	double			z;
+	double			w;
+}					t_vertex;
 
 typedef struct		s_field
 {
@@ -173,6 +181,13 @@ size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
 double				m_modf(double x, double *iptr);
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Graphics
+**
+**	Functions used for graphics pipeline.
+*/
 /*
 **  ----------------------------------------------------------------------------
 **
