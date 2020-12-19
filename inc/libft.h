@@ -6,13 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/10 10:06:33 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/19 03:48:27 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define BUFF_SIZE 4
+# define CAPACITY 10
 # define MAX_FD 1024
 # define SQRTPREC 64
 # define POWPREC 0.000001
@@ -54,6 +55,34 @@ typedef struct		s_dlist
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }					t_dlist;
+
+typedef struct		s_hitem
+{
+	char			*key;
+	void			*value;
+}					t_hitem;
+
+typedef struct		s_htable
+{
+	t_hitem			**items;
+	t_dlist			**overflow_buckets;
+	int				size;
+	int				count;
+	size_t			(*hf)(char *);
+}					t_htable;
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Hash
+**
+**	Hash-table implementation.
+*/
+size_t				hash_function(char *key);
+t_htable			*ht_create(int size);
+void				ht_delete(t_htable *table, char *key);
+void				ht_insert(t_htable *table, char *key, char *value);
+char				*ht_search(t_htable *table, char *key);
+void				ht_print(t_htable *table);
 /*
 **  ----------------------------------------------------------------------------
 **

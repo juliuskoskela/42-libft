@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/12/10 10:06:41 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/12/19 03:39:15 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -147,7 +147,13 @@ SRC_BASE =	bits/b_atonb.c \
 			void/v_cpy.c \
 			void/v_del.c \
 			void/v_move.c \
-			void/v_set.c
+			void/v_set.c \
+			hash/hash_function.c \
+			hash/ht_create.c \
+			hash/ht_insert.c \
+			hash/ht_delete.c \
+			hash/ht_search.c \
+			hash/ht_print.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
