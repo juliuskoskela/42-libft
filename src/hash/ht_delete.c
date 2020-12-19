@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:03:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 03:32:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/19 20:20:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static t_hitem		*create_item(char *key, char *value)
 {
 	t_hitem			*item;
 
-	item = (t_hitem *) malloc (sizeof(t_hitem));
-	item->key = (char *) calloc (s_len(key) + 1, sizeof(char));
-	item->value = (char *) calloc (s_len(value) + 1, sizeof(char));
+	item = (t_hitem *)v_alloc(sizeof(t_hitem));
+	item->key = (char *)v_alloc(sizeof(char) * s_len(key) + 1);
+	item->value = (char *)v_alloc(sizeof(char) * s_len(value) + 1);
 	s_cpy(item->key, key);
 	s_cpy(item->value, value);
 	return (item);
