@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 03:32:11 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/19 04:26:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,12 @@ static t_hitem		*create_item(char *key, char *value)
 {
 	t_hitem			*item;
 
-	item = (t_hitem *) malloc (sizeof(t_hitem));
-	item->key = (char *) calloc (s_len(key) + 1, sizeof(char));
-	item->value = (char *) calloc (s_len(value) + 1, sizeof(char));
+	item = (t_hitem *)v_alloc(sizeof(t_hitem));
+	item->key = s_new(s_len(key) + 1);
+	item->value = s_new(s_len(value) + 1);
 	s_cpy(item->key, key);
 	s_cpy(item->value, value);
 	return (item);
-}
-
-static t_dlist		*allocate_list()
-{
-	t_dlist			*list;
-
-	list = (t_dlist *)calloc(1, sizeof(t_dlist));
-	return list;
 }
 
 static void			collision(t_htable *table, uint64_t i, t_hitem *item)
@@ -46,7 +38,7 @@ static void			collision(t_htable *table, uint64_t i, t_hitem *item)
 	head = table->overflow_buckets[i];
 	if (head == NULL)
 	{
-		head = allocate_list();
+		head = (t_dlist *)v_alloc(sizeof(t_dlist));
 		head->content = item;
 		table->overflow_buckets[i] = head;
 		return ;
@@ -58,41 +50,36 @@ static void			collision(t_htable *table, uint64_t i, t_hitem *item)
 	}
  }
 
-void				ht_insert(t_htable *table, char *key, char *value)
+int				ht_insert(t_htable *t, char *key, char *v)
 {
 	int				i;
 	t_hitem			*item;
 	t_hitem			*current_item;
 
 	i = hash_function(key);
-	item = create_item(key, value);
-	current_item = table->items[i];
+	item = create_item(key, v);
+	current_item = t->items[i];
 	if (current_item == NULL)
 	{
-		if (table->count == table->size)
+		if (t->count == t->size)
 		{
-			p_str("Insert Error: Hash Table is full\n");
 			free_item(item);
-			return ;
+			return (-1);
 		}
-		table->items[i] = item;
-		table->count++;
+		t->items[i] = item;
+		t->count++;
 	}
 	else
 	{
 		if (s_cmp(current_item->key, key) == 0)
 		{
-			free(table->items[i]->value);
-			table->items[i]->value = (char*)calloc(s_len(value) + 1, \
-														 sizeof(char));
-			s_cpy(table->items[i]->value, value);
+			free(t->items[i]->value);
+			t->items[i]->value = (char *)v_alloc(sizeof(char) * s_len(v) + 1);
+			s_cpy(t->items[i]->value, v);
 			free_item(item);
-			return ;
 		}
 		else
-		{
-			collision(table, i, item);
-			return ;
-		}
+			collision(t, i, item);
 	}
+	return(1);
 }

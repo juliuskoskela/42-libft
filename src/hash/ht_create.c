@@ -33,7 +33,7 @@ t_htable			*ht_create(int size)
 	t_htable		*table;
 
 	i = 0;
-	table = (t_htable *)malloc(sizeof(t_htable));
+	table = (t_htable *)v_alloc(sizeof(t_htable));
 	table->size = size;
 	table->count = 0;
 	table->items = (t_hitem **)v_alloc(sizeof(t_hitem *) * table->size);
