@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 18:19:18 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 20:01:14 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-static void				free_item(t_hitem *item)
+static void			free_item(t_hitem *item)
 {
 	free(item->key);
 	free(item->value);
@@ -31,7 +31,7 @@ static t_hitem		*create_item(char *key, void *val, size_t bt)
 	return (item);
 }
 
-int				ht_insert(t_htable *tab, char *key, void *val, size_t bt)
+int					ht_insert(t_htable *tab, char *key, void *val, size_t bt)
 {
 	size_t			i;
 	t_hitem			*item;

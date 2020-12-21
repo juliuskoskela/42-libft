@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 03:38:33 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 18:15:03 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 18:49:32 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void				ht_print(t_htable *table)
 	{
 		if (table->items[i])
 		{
-			printf("[%d] = %s => %s\n", i, table->items[i]->key, table->items[i]->value);
+			printf("[%d] = %s => %s\n", i, table->items[i]->key, \
+			table->items[i]->value);
 			head = table->overflow_buckets[i];
 			while (head)
 			{
@@ -40,7 +41,3 @@ void				ht_print(t_htable *table)
 		i++;
 	}
 }
-
-/*
-** Not working...
-*/

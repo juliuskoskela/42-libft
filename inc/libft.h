@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 18:19:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 18:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # define SQRTPREC 64
 # define POWPREC 0.000001
 # define PI 3.14159265359
-# define ABS(X)  ((X >= 0)? X : -(x))
-# define ROUND(X)  (X >= 0)? (int)(X + 0.5) : (int) - (ABS(X) + 0.5)
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:03:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 17:01:03 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 20:07:39 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,15 @@ static void			*free_t_dlist(t_dlist *list)
 	return (NULL);
 }
 
-static int			del_bucket(t_htable *tab, t_hitem *item, char *key, size_t index)
+static int			del_b(t_htable *tab, t_dlist *head, char *key, size_t index)
 {
-	t_dlist			*head;
-	t_dlist			*node;
+	t_hitem			*tmp;
 
 	head = tab->overflow_buckets[index];
-	if (s_cmp(item->key, key) == 0)
-	{
-		free_item(item);
-		node = head;
-		head = head->next;
-		node->next = NULL;
-		item = node->content;
-		tab->items[index] = create_item(item->key, item->value, item->bytes);
-		free_t_dlist(node);
-		tab->overflow_buckets[index] = head;
-		return (1);
-	}
 	while (head)
 	{
-		item = head->content;
-		if (s_cmp(item->key, key) == 0)
+		tmp = head->content;
+		if (s_cmp(tmp->key, key) == 0)
 		{
 			if (head->prev == NULL)
 				tab->overflow_buckets[index] = free_t_dlist(head);
@@ -86,22 +73,34 @@ static int			del_bucket(t_htable *tab, t_hitem *item, char *key, size_t index)
 
 void				ht_delete(t_htable *tab, char *key)
 {
-	size_t			index;
+	size_t			i;
 	t_hitem			*item;
 	t_dlist			*head;
 
-	index = tab->hf(key);
-	item = tab->items[index];
-	head = tab->overflow_buckets[index];
+	i = tab->hf(key);
+	item = tab->items[i];
+	head = tab->overflow_buckets[i];
 	if (item == NULL)
 		return ;
 	if (head == NULL && s_cmp(item->key, key) == 0)
 	{
-		tab->items[index] = NULL;
+		tab->items[i] = NULL;
 		free_item(item);
 		tab->count--;
 		return ;
 	}
 	else if (head != NULL)
-		del_bucket(tab, item, key, index);
+	{
+		if (s_cmp(item->key, key) == 0)
+		{
+			free_item(item);
+			item = head->content;
+			tab->items[i] = create_item(item->key, item->value, item->bytes);
+			free_item(item);
+			tab->overflow_buckets[i] = NULL;
+			free(head);
+		}
+		else
+			del_b(tab, head, s_dup(key), i);
+	}
 }

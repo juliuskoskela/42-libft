@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ht_create.c                                     :+:      :+:    :+:   */
+/*   ht_create.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/19 00:54:08 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 00:54:43 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/21 20:00:55 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/12/21 20:00:57 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_dlist		**create_overflow_buckets(t_htable *table)
 		buckets[i] = NULL;
 		i++;
 	}
-	return buckets;
+	return (buckets);
 }
 
 t_htable			*ht_create(size_t (*hf)(char *), size_t size)

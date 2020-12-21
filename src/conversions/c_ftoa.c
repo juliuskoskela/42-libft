@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 02:44:45 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 02:14:25 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 20:00:08 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char		*join(uint64_t decimal, uint64_t integer)
 
 	out = c_itoa_base(integer, 10);
 	out = s_join_free(out, ".", 1);
-	return(s_join_free(out, c_itoa_base(decimal, 10), 3));
+	return (s_join_free(out, c_itoa_base(decimal, 10), 3));
 }
 
 char			*c_ftoa(double nbr, size_t p)
