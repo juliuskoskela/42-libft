@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 15:55:49 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 18:19:18 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_hitem		*create_item(char *key, void *val, size_t bt)
 	return (item);
 }
 
-int				ht_insert(t_htable *tab, char *key, char *val, size_t bt)
+int				ht_insert(t_htable *tab, char *key, void *val, size_t bt)
 {
 	size_t			i;
 	t_hitem			*item;
