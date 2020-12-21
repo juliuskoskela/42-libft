@@ -27,7 +27,7 @@ static t_dlist		**create_overflow_buckets(t_htable *table)
 	return buckets;
 }
 
-t_htable			*ht_create(int size)
+t_htable			*ht_create(size_t (*hf)(char *), size_t size)
 {
 	int				i;
 	t_htable		*table;
@@ -37,6 +37,7 @@ t_htable			*ht_create(int size)
 	table->size = size;
 	table->count = 0;
 	table->items = (t_hitem **)v_alloc(sizeof(t_hitem *) * table->size);
+	table->hf = hf;
 	while (i < table->size)
 	{
 		table->items[i] = NULL;

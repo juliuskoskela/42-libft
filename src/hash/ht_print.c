@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 03:38:33 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 04:08:09 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 17:16:08 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,17 @@ void				ht_print(t_htable *table)
 	t_hitem			*tmp;
 
 	i = 0;
+	head = table->overflow_buckets[i];
 	while (i < table->size)
 	{
 		if (table->items[i])
 		{
 			printf("[%d] = %s => %s", i, table->items[i]->key, table->items[i]->value);
-			if (table->overflow_buckets[i])
+			while (head)
 			{
-				printf(" => Overflow Bucket => ");
-				head = table->overflow_buckets[i];
-				while (head)
-				{
-					tmp = head->content;
-					printf("Key:%s, Value:%s ", tmp->key, tmp->value);
-					head = head->next;
-				}
+				tmp = head->content;
+				printf("Key:%s, Value:%s ", tmp->key, tmp->value);
+				head = head->next;
 			}
 			printf("\n");
 		}

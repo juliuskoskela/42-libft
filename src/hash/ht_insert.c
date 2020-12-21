@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 04:26:48 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 15:55:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,67 +19,48 @@ static void				free_item(t_hitem *item)
 	free(item);
 }
 
-static t_hitem		*create_item(char *key, char *value)
+static t_hitem		*create_item(char *key, void *val, size_t bt)
 {
 	t_hitem			*item;
 
 	item = (t_hitem *)v_alloc(sizeof(t_hitem));
-	item->key = s_new(s_len(key) + 1);
-	item->value = s_new(s_len(value) + 1);
-	s_cpy(item->key, key);
-	s_cpy(item->value, value);
+	item->key = s_dup(key);
+	item->value = (void *)v_alloc(sizeof(void));
+	item->value = v_move(item->value, val, bt);
+	item->bytes = bt;
 	return (item);
 }
 
-static void			collision(t_htable *table, uint64_t i, t_hitem *item)
+int				ht_insert(t_htable *tab, char *key, char *val, size_t bt)
 {
-	t_dlist			*head;
-
-	head = table->overflow_buckets[i];
-	if (head == NULL)
-	{
-		head = (t_dlist *)v_alloc(sizeof(t_dlist));
-		head->content = item;
-		table->overflow_buckets[i] = head;
-		return ;
-	}
-	else
-	{
-		dl_putlast(&table->overflow_buckets[i], item);
-		return ;
-	}
- }
-
-int				ht_insert(t_htable *t, char *key, char *v)
-{
-	int				i;
+	size_t			i;
 	t_hitem			*item;
 	t_hitem			*current_item;
 
-	i = hash_function(key);
-	item = create_item(key, v);
-	current_item = t->items[i];
+	item = create_item(key, val, bt);
+	i = tab->hf(key);
+	current_item = tab->items[i];
 	if (current_item == NULL)
 	{
-		if (t->count == t->size)
+		if (tab->count == tab->size)
 		{
 			free_item(item);
 			return (-1);
 		}
-		t->items[i] = item;
-		t->count++;
+		tab->items[i] = item;
+		tab->count++;
 	}
 	else
 	{
 		if (s_cmp(current_item->key, key) == 0)
 		{
-			free(t->items[i]->value);
-			t->items[i]->value = (char *)v_alloc(sizeof(char) * s_len(v) + 1);
-			s_cpy(t->items[i]->value, v);
+			free(tab->items[i]->value);
+			tab->items[i]->value = (void *)v_alloc(sizeof(size_t) * bt);
+			tab->items[i]->value = v_move(tab->items[i]->value, val, bt);
 			free_item(item);
 		}
 		else
-			collision(t, i, item);
+			dl_putlast(&tab->overflow_buckets[i], item);
 	}
-	return(1);
+	return (1);
 }

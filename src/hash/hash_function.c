@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 00:38:36 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/19 03:49:37 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/21 15:49:07 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t				hash_function(char *key)
 	size_t			len;
 
 	len = s_len(key);
-	for(hash = i = 0; i < len; ++i)
+	for (hash = i = 0; i < len; ++i)
 	{
 		hash += key[i];
 		hash += (hash << 10);
