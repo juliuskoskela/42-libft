@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 18:48:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/31 00:39:27 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <stdio.h>
+# include <math.h>
 
 typedef union		u_double
 {
@@ -28,13 +30,13 @@ typedef union		u_double
 	uint64_t		i;
 }					t_double;
 
-typedef struct		s_vertex
+typedef struct		s_mtx
 {
-	double			x;
-	double			y;
-	double			z;
-	double			w;
-}					t_vertex;
+	size_t			x;
+	size_t			y;
+	double			*this;
+	char			*name;
+}					t_mtx;
 
 typedef struct		s_field
 {
@@ -194,6 +196,7 @@ int					is_neg(int n);
 **
 **	Math functions.
 */
+double				m_rad(double dgr);
 double				m_sqrt(double n);
 int64_t				m_log(int64_t n);
 int					m_intlen(int64_t n);
@@ -209,13 +212,26 @@ size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
 double				m_modf(double x, double *iptr);
+double				vct_dot(double *a, double *b, size_t size);
+double				vct_mag(double *vct);
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Graphics
+**	Matrix
 **
-**	Functions used for graphics pipeline.
+**	Functions for linear algebra.
 */
+t_mtx				*mtx_new(char *name, size_t rows, size_t cols);
+void				mtx_clear(t_mtx *mtx);
+void				mtx_print(t_mtx *mtx);
+int					mtx_multiply(t_mtx *mtx, t_mtx *a, t_mtx *b);
+int					mtx_arr_multiply(t_mtx *mtx, t_mtx **arr, size_t size);
+void				mtx_transpose(t_mtx *mtx, t_mtx *src);
+void				mtx_get_row(double *row, t_mtx *mtx, size_t index);
+void				mtx_get_col(double *col, t_mtx *mtx, size_t index);
+double				vct_dot(double *a, double *b, size_t size);
+double				vct_mag(double *vct);
+double				*vct_opp(double *vct);
 /*
 **  ----------------------------------------------------------------------------
 **

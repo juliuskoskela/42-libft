@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/12/19 03:39:15 by jkoskela         ###   ########.fr        #
+#    Updated: 2020/12/31 00:37:09 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRC_BASE =	bits/b_atonb.c \
 			istrue/is_print.c \
 			istrue/is_upper.c \
 			istrue/is_wspace.c \
+			math/m_rad.c \
 			math/m_fabs.c \
 			math/m_fac.c \
 			math/m_intlen.c \
@@ -154,6 +155,17 @@ SRC_BASE =	bits/b_atonb.c \
 			hash/ht_delete.c \
 			hash/ht_search.c \
 			hash/ht_print.c \
+			matrix/mtx_new.c \
+			matrix/mtx_print.c \
+			matrix/mtx_get_row.c \
+			matrix/mtx_get_col.c \
+			matrix/mtx_transpose.c \
+			matrix/mtx_multiply.c \
+			matrix/mtx_arr_multiply.c \
+			matrix/mtx_clear.c \
+			matrix/vct_dot.c \
+			matrix/vct_mag.c \
+			matrix/vct_opp.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
