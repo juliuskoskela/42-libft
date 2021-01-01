@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 00:39:27 by jkoskela         ###   ########.fr       */
+/*   Updated: 2020/12/31 02:02:04 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ int					is_neg(int n);
 **	Math functions.
 */
 double				m_rad(double dgr);
+double				m_dgr(double rad);
 double				m_sqrt(double n);
 int64_t				m_log(int64_t n);
 int					m_intlen(int64_t n);
@@ -212,8 +213,6 @@ size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
 double				m_modf(double x, double *iptr);
-double				vct_dot(double *a, double *b, size_t size);
-double				vct_mag(double *vct);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -230,8 +229,10 @@ void				mtx_transpose(t_mtx *mtx, t_mtx *src);
 void				mtx_get_row(double *row, t_mtx *mtx, size_t index);
 void				mtx_get_col(double *col, t_mtx *mtx, size_t index);
 double				vct_dot(double *a, double *b, size_t size);
-double				vct_mag(double *vct);
-double				*vct_opp(double *vct);
+double			*	vct_cross(double *a, double *b, size_t size);
+double				vct_mag(double *vct, size_t size);
+double				*vct_opp(double *vct, size_t size);
+double				*vct_norm(double *vct, size_t size);
 /*
 **  ----------------------------------------------------------------------------
 **

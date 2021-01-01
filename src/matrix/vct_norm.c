@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_opp.c                                          :+:      :+:    :+:   */
+/*   vct_norm.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 00:30:21 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 01:49:59 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/31 01:39:53 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/12/31 01:49:03 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			*vct_opp(double *vct, size_t size)
+double			*vct_norm(double *vct, size_t size)
 {
+	double		mag;
 	double		*out;
-	size_t 		i;
+	size_t		i;
 
 	i = 0;
+	mag = (-1) * vct_mag(vct, size);
 	out = (double *)v_alloc(sizeof(double) * size);
 	while (i < size)
 	{
-		out[i] = vct[i] * (-1);
+		out[i] = vct[i] / mag;
 		i++;
 	}
 	return (out);
@@ -30,9 +32,9 @@ double			*vct_opp(double *vct, size_t size)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	vct_opp
+**	Vct_norm
 **
-**	Calculate the opposite unit vector of `vct`.
+**	Normalize vector `vct`.
 **
 **  ----------------------------------------------------------------------------
 */

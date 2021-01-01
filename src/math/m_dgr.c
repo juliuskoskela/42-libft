@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_opp.c                                          :+:      :+:    :+:   */
+/*   m_dgr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 00:30:21 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 01:49:59 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/31 02:01:12 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/12/31 02:01:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			*vct_opp(double *vct, size_t size)
+double		m_dgr(double rad)
 {
-	double		*out;
-	size_t 		i;
-
-	i = 0;
-	out = (double *)v_alloc(sizeof(double) * size);
-	while (i < size)
-	{
-		out[i] = vct[i] * (-1);
-		i++;
-	}
-	return (out);
+	return (rad / (PI / 180));
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	vct_opp
+**	M__dgr
 **
-**	Calculate the opposite unit vector of `vct`.
+**	Convert radians to degrees.
 **
 **  ----------------------------------------------------------------------------
 */

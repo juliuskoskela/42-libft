@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_opp.c                                          :+:      :+:    :+:   */
+/*   vct_cross.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 00:30:21 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 01:49:59 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/31 01:28:08 by jkoskela          #+#    #+#             */
+/*   Updated: 2020/12/31 01:57:38 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			*vct_opp(double *vct, size_t size)
+double			*vct_cross(double *a, double *b, size_t size)
 {
 	double		*out;
-	size_t 		i;
+	size_t		i;
 
 	i = 0;
 	out = (double *)v_alloc(sizeof(double) * size);
-	while (i < size)
-	{
-		out[i] = vct[i] * (-1);
-		i++;
-	}
+	out[0] = (a[1] * b[2]) - (a[2] * b[1]);
+	out[1] = (a[2] * b[0]) - (a[0] * b[2]);
+	out[2] = (a[0] * b[1]) - (a[1] * b[0]);
 	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	vct_opp
+**	Vct_cross
 **
-**	Calculate the opposite unit vector of `vct`.
+**	Cross-product of vector a * b.
 **
 **  ----------------------------------------------------------------------------
 */

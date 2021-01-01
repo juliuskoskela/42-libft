@@ -12,9 +12,19 @@
 
 #include "../../inc/libft.h"
 
-double		vct_mag(double *vct)
+double			vct_mag(double *vct, size_t size)
 {
-	return (sqrt(pow(vct[0], 2) + pow(vct[1], 2) + pow(vct[2], 2)));
+	double		radicand;
+	size_t 		i;
+
+	i = 0;
+	radicand = 0;
+	while (i < size)
+	{
+		radicand += pow(vct[i], 2);
+		i++;
+	}
+	return (sqrt(radicand));
 }
 
 /*
