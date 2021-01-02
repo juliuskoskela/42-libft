@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2020/12/31 02:02:17 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/02 02:01:46 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,6 +157,8 @@ SRC_BASE =	bits/b_atonb.c \
 			hash/ht_search.c \
 			hash/ht_print.c \
 			matrix/mtx_new.c \
+			matrix/mtx_free.c \
+			matrix/mtx_cpy.c \
 			matrix/mtx_print.c \
 			matrix/mtx_get_row.c \
 			matrix/mtx_get_col.c \

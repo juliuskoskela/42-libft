@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 00:01:10 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 00:40:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/02 14:57:01 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			mtx_print(t_mtx *mtx)
 		printf("| %5.2f ", mtx->this[i++]);
 		j++;
 	}
-	printf("\n");
+	printf("\n\n");
 }
 
 /*

@@ -1,57 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mtx_multiply.c                                     :+:      :+:    :+:   */
+/*   mtx_cpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 00:11:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/02 14:55:20 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/02 01:59:14 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/02 02:53:33 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int			mtx_multiply(t_mtx *mtx, t_mtx *a, t_mtx *b)
+void			mtx_cpy(t_mtx *dest, t_mtx *orig)
 {
-	double		*row;
-	double		*col;
 	size_t		i;
-	size_t		j;
-	size_t		k;
+	int			offset;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	row = (double *)v_alloc(sizeof(double) * a->x);
-	col = (double *)v_alloc(sizeof(double) * b->y);
-	if (a->x != b->y || !a || !b)
-		return (-1);
-	while (i < a->x * a->y)
+	offset = orig->y - dest->x;
+	while (i < dest->x * dest->y)
 	{
-		if (k == a->x)
-		{
-			k = 0;
-			j++;
-		}
-		mtx_get_row(row, a, j);
-		mtx_get_col(col, b, k);
-		mtx->this[i] = vct_dot(row, col, a->x);
+		dest->this[i] = orig->this[i + offset];
 		i++;
-		k++;
 	}
-	free(row);
-	free(col);
-	return (1);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Mtx_multiply
+**	Mtx_clear
 **
-**	Multiply `a * b`. Store the result in an allocated matrix `mtx` passed
-**	as a parameter.
+**	Clear matrix.
 **
 **  ----------------------------------------------------------------------------
 */

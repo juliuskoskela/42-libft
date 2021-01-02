@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 02:02:04 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/02 02:00:51 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,9 @@ double				m_modf(double x, double *iptr);
 **	Functions for linear algebra.
 */
 t_mtx				*mtx_new(char *name, size_t rows, size_t cols);
+void				mtx_free(t_mtx *mtx);
 void				mtx_clear(t_mtx *mtx);
+void				mtx_cpy(t_mtx *dest, t_mtx *orig);
 void				mtx_print(t_mtx *mtx);
 int					mtx_multiply(t_mtx *mtx, t_mtx *a, t_mtx *b);
 int					mtx_arr_multiply(t_mtx *mtx, t_mtx **arr, size_t size);
