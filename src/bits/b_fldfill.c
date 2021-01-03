@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:23:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 01:26:26 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,14 @@ int				b_fldfill(uint64_t *field, char *file, char one, uint64_t size)
 	}
 	return (1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	B_fldfill
+**
+**	Fill the field from a file. Characters of the value `one` are 1 and all
+**	other caracters are 0.
+**
+**  ----------------------------------------------------------------------------
+*/

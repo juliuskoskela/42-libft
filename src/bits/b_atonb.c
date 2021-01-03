@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 14:42:11 by esukava           #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 01:19:24 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,14 @@ uint64_t		b_atonb(char *str, char c, uint64_t size)
 	}
 	return (nb);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	B_atonb
+**
+**	Convert a string into bits. Characters of value `c` are considered 1
+**	and all other values are considered 0.
+**
+**  ----------------------------------------------------------------------------
+*/

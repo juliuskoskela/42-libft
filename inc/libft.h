@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/02 02:00:51 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 00:28:10 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct		s_htable
 **
 **	A hash-table implementation.
 */
-size_t				hash_function(char *key);
+size_t				hash1(char *key);
 t_htable			*ht_create(size_t (*hf)(char *), size_t size);
 void				ht_delete(t_htable *tab, char *key);
 int					ht_insert(t_htable *tab, char *key, void *val, size_t bt);

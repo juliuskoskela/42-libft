@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:24:06 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 01:30:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,14 @@ int			b_fldoverlap(t_field *board, t_field *field)
 	}
 	return (1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	B_fldoverlap
+**
+**	If fields overlap at any position inside the container of `board` return 0.
+**	Otherwise return 1.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 20:01:14 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 00:36:15 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,14 @@ int					ht_insert(t_htable *tab, char *key, void *val, size_t bt)
 	}
 	return (1);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Ht_insert
+**
+**	Insert value `val` into hash table `tab` with the key value of `key`.
+**	Bt is the size of the data in `val`.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 01:05:39 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/04 01:08:31 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 00:19:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,20 @@ char		*s_join_free(char *s1, char *s2, size_t flag)
 	}
 	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_join_free
+**
+**	Join strings `s1` and `s2`. Frees the string referred to by `flag`.
+**
+**	0 = no free
+**	1 = `s1` is freed
+**	2 = `s2` is freed
+**	3 = both strings are freed
+**
+**	Returns a memory allocated output `out`.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 20:00:55 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 20:00:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 00:29:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,13 @@ t_htable			*ht_create(size_t (*hf)(char *), size_t size)
 	table->overflow_buckets = create_overflow_buckets(table);
 	return (table);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Ht_create
+**
+**	Create hash table of size `size`.
+**
+**  ----------------------------------------------------------------------------
+*/

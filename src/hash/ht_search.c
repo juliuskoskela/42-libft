@@ -6,21 +6,21 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:01:48 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/21 20:00:29 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/03 00:33:01 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void				*ht_search(t_htable *table, char *key)
+void				*ht_search(t_htable *tab, char *key)
 {
 	size_t			index;
 	t_hitem			*item;
 	t_dlist			*head;
 
-	index = table->hf(key);
-	item = table->items[index];
-	head = table->overflow_buckets[index];
+	index = tab->hf(key);
+	item = tab->items[index];
+	head = tab->overflow_buckets[index];
 	while (item != NULL)
 	{
 		if (s_cmp(item->key, key) == 0)
@@ -32,3 +32,13 @@ void				*ht_search(t_htable *table, char *key)
 	}
 	return (NULL);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Ht_search
+**
+**	Search hash item of value `key` from the table `tab`.
+**
+**  ----------------------------------------------------------------------------
+*/

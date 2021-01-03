@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/02 02:01:46 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/03 00:28:10 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,7 @@ SRC_BASE =	bits/b_atonb.c \
 			void/v_del.c \
 			void/v_move.c \
 			void/v_set.c \
-			hash/hash_function.c \
+			hash/hash1.c \
 			hash/ht_create.c \
 			hash/ht_insert.c \
 			hash/ht_delete.c \

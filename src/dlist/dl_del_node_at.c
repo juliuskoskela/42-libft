@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 15:06:51 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/02 19:01:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			dl_del_node_at(t_dlist **ref, uint64_t pos)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Dll_del_node_at
+**	Dl_del_node_at
 **
 **	Delete node in position `pos`.
 **
