@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 00:11:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/02 14:55:20 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/04 03:15:33 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int			mtx_multiply(t_mtx *mtx, t_mtx *a, t_mtx *b)
 	col = (double *)v_alloc(sizeof(double) * b->y);
 	if (a->x != b->y || !a || !b)
 		return (-1);
-	while (i < a->x * a->y)
+	while (i < mtx->x * mtx->y)
 	{
-		if (k == a->x)
+		if (k == mtx->x)
 		{
 			k = 0;
 			j++;
