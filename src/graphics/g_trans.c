@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   g_trans.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/30 01:10:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 02:59:04 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/13 17:55:25 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/04 05:12:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	error(char *message)
+void			g_trans(t_mtx *mtx, t_mtx *vtx)
 {
-	p_str(message);
-	exit(-1);
+	mtx->this[0] = 1.0;
+	mtx->this[3] = vtx->this[0];
+	mtx->this[5] = 1.0;
+	mtx->this[7] = vtx->this[1];
+	mtx->this[10] = 1.0;
+	mtx->this[11] = vtx->this[2];
+	mtx->this[15] = 1.0;
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Error
+**	G_trans
 **
-**	Prints an error message passed as an argument and exits the program.
+**	Create a transformatio matrix from `vtx`.
 **
 **  ----------------------------------------------------------------------------
 */

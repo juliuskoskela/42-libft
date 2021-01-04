@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/03 00:28:10 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/04 05:30:43 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -171,6 +171,13 @@ SRC_BASE =	bits/b_atonb.c \
 			matrix/vct_mag.c \
 			matrix/vct_opp.c \
 			matrix/vct_norm.c \
+			graphics/g_proj.c \
+			graphics/g_rotx.c \
+			graphics/g_roty.c \
+			graphics/g_rotz.c \
+			graphics/g_scale.c \
+			graphics/g_trans.c \
+			graphics/g_vtx.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

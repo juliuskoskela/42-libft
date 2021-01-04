@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   g_rotx.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/30 01:10:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 02:59:04 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/12/13 17:54:11 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/04 05:12:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	error(char *message)
+void			g_rotx(t_mtx *mtx, double angle)
 {
-	p_str(message);
-	exit(-1);
+	mtx->this[0] = 1.0;
+	mtx->this[5] = cos(m_rad(angle));
+	mtx->this[6] = -sin(m_rad(angle));
+	mtx->this[9] = sin(m_rad(angle));
+	mtx->this[10] = cos(m_rad(angle));
+	mtx->this[15] = 1.0;
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Error
+**	G_rotx
 **
-**	Prints an error message passed as an argument and exits the program.
+**	Create a rotation matrix of `angle` degrees in the x direction.
 **
 **  ----------------------------------------------------------------------------
 */

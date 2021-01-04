@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 00:28:10 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/04 05:33:59 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,20 @@ void				fd_addchar(char c, int fd);
 void				fd_addstr(char const *s, int fd);
 void				fd_addendl(char const *s, int fd);
 void				fd_addnbr(int n, int fd);
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Graphics
+**
+**	Graphics related functions.
+*/
+t_mtx				*g_vtx(double x, double y, double z, size_t index);
+void				g_rotx(t_mtx *mtx, double angle);
+void				g_roty(t_mtx *mtx, double angle);
+void				g_rotz(t_mtx *mtx, double angle);
+void				g_trans(t_mtx *mtx, t_mtx *vtx);
+void				g_scale(t_mtx *mtx, double scale);
+void				g_proj(t_mtx *mtx, double fv, double rt, int n, int f);
 /*
 **  ----------------------------------------------------------------------------
 **

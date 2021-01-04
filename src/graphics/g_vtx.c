@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   g_vtx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/30 01:10:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 02:59:04 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/01 03:03:35 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/01 16:10:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	error(char *message)
+t_mtx		*g_vtx(double x, double y, double z, size_t index)
 {
-	p_str(message);
-	exit(-1);
+	t_mtx	*out;
+
+	out = mtx_new(c_itoa(index), 1, 4);
+	out->this[0] = x;
+	out->this[1] = y;
+	out->this[2] = z;
+	out->this[3] = 1.0;
+	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Error
+**	G_vtx
 **
-**	Prints an error message passed as an argument and exits the program.
+**	Create an indexed vertex.
 **
 **  ----------------------------------------------------------------------------
 */
