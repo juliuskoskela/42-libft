@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 01:59:14 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/02 02:53:33 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/05 04:53:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void			mtx_cpy(t_mtx *dest, t_mtx *orig)
 {
 	size_t		i;
-	int			offset;
 
 	i = 0;
-	offset = orig->y - dest->x;
 	while (i < dest->x * dest->y)
 	{
-		dest->this[i] = orig->this[i + offset];
+		dest->this[i] = orig->this[i];
 		i++;
 	}
 }

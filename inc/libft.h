@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/04 05:33:59 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/05 00:11:57 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,7 +245,7 @@ void				mtx_transpose(t_mtx *mtx, t_mtx *src);
 void				mtx_get_row(double *row, t_mtx *mtx, size_t index);
 void				mtx_get_col(double *col, t_mtx *mtx, size_t index);
 double				vct_dot(double *a, double *b, size_t size);
-double			*	vct_cross(double *a, double *b, size_t size);
+double				*vct_cross(double *a, double *b, size_t size);
 double				vct_mag(double *vct, size_t size);
 double				*vct_opp(double *vct, size_t size);
 double				*vct_norm(double *vct, size_t size);
