@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/04 05:30:43 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/05 18:11:49 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC_BASE =	bits/b_atonb.c \
 			dlist/dl_del_node.c \
 			dlist/dl_del_node_at.c \
 			dlist/dl_get_last.c \
+			dlist/dl_join.c \
 			dlist/dl_len.c \
 			dlist/dl_print.c \
 			dlist/dl_putafter.c \

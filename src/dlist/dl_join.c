@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mtx_new.c                                          :+:      :+:    :+:   */
+/*   dl_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 23:56:49 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/05 23:56:44 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/05 18:09:24 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/05 18:10:51 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_mtx			*mtx_new(char *name, size_t y, size_t x)
+t_dlist			*dl_join(t_dlist *head, t_dlist *tail)
 {
-	size_t		i;
-	t_mtx		*out;
+	t_dlist		*out;
 
-	i = 0;
-	out = (t_mtx *)v_alloc(sizeof(t_mtx));
-	out->name = s_dup(name);
-	out->this = (double *)v_alloc(sizeof(double) * (rows * cols));
-	out->x = rows;
-	out->y = cols;
+	out = head;
+	while (head->next)
+		head = head->next;
+	head->next = tail;
 	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	Mtx_new
+**	Dl_join
 **
-**	Create a new matrix.
+**	Join lists so that the last node of `head` points to the first node of
+**	`tail`.
 **
 **  ----------------------------------------------------------------------------
 */

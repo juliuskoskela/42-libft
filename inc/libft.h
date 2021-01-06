@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/05 00:11:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/05 23:56:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void				dl_putfirst(t_dlist **ref, void *new);
 void				dl_putlast(t_dlist **ref, void *new);
 void				dl_putbefore(t_dlist **ref, t_dlist *next, void *new);
 void				dl_putafter(t_dlist **ref, t_dlist *prev, void *new);
+t_dlist				*dl_join(t_dlist *head, t_dlist *tail);
 void				dl_print_s(t_dlist *node);
 void				dl_print_b(t_dlist *node);
 void				dl_del_node(t_dlist **ref, t_dlist *del);
@@ -234,7 +235,7 @@ double				m_modf(double x, double *iptr);
 **
 **	Functions for linear algebra.
 */
-t_mtx				*mtx_new(char *name, size_t rows, size_t cols);
+t_mtx				*mtx_new(char *name, size_t y, size_t x);
 void				mtx_free(t_mtx *mtx);
 void				mtx_clear(t_mtx *mtx);
 void				mtx_cpy(t_mtx *dest, t_mtx *orig);
