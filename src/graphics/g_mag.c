@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mtx_new.c                                          :+:      :+:    :+:   */
+/*   g_mag.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 23:56:49 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/06 05:52:31 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/11 00:51:01 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/11 09:22:44 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_mtx			*mtx_new(char *name, size_t x, size_t y)
+double			g_mag(t_vct4 v)
 {
-	size_t		i;
-	t_mtx		*out;
+	double		out;
 
-	i = 0;
-	out = (t_mtx *)v_alloc(sizeof(t_mtx));
-	out->name = s_dup(name);
-	out->this = (double *)v_alloc(sizeof(double) * (x * y));
-	out->x = x;
-	out->y = y;
+	out = sqrt(pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2) + pow(v.w, 2));
 	return (out);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Mtx_new
-**
-**	Create a new matrix.
-**
-**  ----------------------------------------------------------------------------
-*/

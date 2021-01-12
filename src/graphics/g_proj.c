@@ -12,28 +12,37 @@
 
 #include "../../inc/libft.h"
 
-// static void		print_method(t_camera *cam)
+t_mtx4			g_proj(double fv, double rt, int n, int f)
+{
+	t_mtx4		out;
+
+	out.name = s_dup("P");
+	out.v2 = g_vct4(0.0, 1 / tan(0.5 * m_rad(fv)), 0.0, 0.0);
+	out.v1 = g_vct4(out.v2.y / rt, 0.0, 0.0, 0.0);
+	out.v3 = g_vct4(0.0, 0.0, -1 * (-n - f) / (n - f), (2 * n * f) / (n - f));
+	out.v4 = g_vct4(0.0, 0.0, -1.0, 0.0);
+	return (out);
+}
+
+// void			g_proj(t_mtx *mtx, double fv, double rt, int n, int f)
 // {
-// 	printf("## g_proj matrix\n\n");
-// 	printf("We create a g_proj matrix to get a 2D representation.\n\n");
-// 	printf("#### g_proj variables\n\n");
-// 	printf("\\( ratio = %.2f \\) \n", cam->ratio);
-// 	printf("\\( near = %.2f \\) \n", cam->near);
-// 	printf("\\( far = %.2f \\) \n", cam->far);
-// 	printf("\\( fov = %.2f\\degree \\) \n\n", cam->fov);
-// 	printf("\\( P = (p_5 = 1 / tan(0.5 * fov)) + (p_0 = p_5 / ratio) + (p_10 = -1 * (-near - far) / (near - far)) + (p_11 = (2 * near * far) / (near - far)) + (p_14 = -1) + (p_15 = 0)) \\) \n\n");
-// 	mtx_print(cam->g_proj);
+// 	mtx->this[5] = 1 / tan(0.5 * m_rad(fv));
+// 	mtx->this[0] = mtx->this[5] / rt;
+// 	mtx->this[10] = -1 * (-n - f) / (n - f);
+// 	mtx->this[11] = (2 * n * f) / (n - f);
+// 	mtx->this[14] = -1;
+// 	mtx->this[15] = 0.0;
 // }
 
-void			g_proj(t_mtx *mtx, double fv, double rt, int n, int f)
-{
-	mtx->this[5] = 1 / tan(0.5 * m_rad(fv));
-	mtx->this[0] = mtx->this[5] / rt;
-	mtx->this[10] = -1 * (-n - f) / (n - f);
-	mtx->this[11] = (2 * n * f) / (n - f);
-	mtx->this[14] = -1;
-	mtx->this[15] = 0.0;
-}
+// convert to screen space
+// Vec2f P_screen;
+// P_screen.x = near * P_camera.x / -P_camera.z;
+// P_screen.y = near * P_camera.y / -P_camera.z;
+
+// now convert point from screen space to NDC space (in range [-1, 1])
+// Vec3f P_ndc;
+// P_ndc.x = 2 * P_screen.x / (r - l) - (r + l) / (r - l);
+// P_ndc.y = 2 * P_screen.y / (t - b) - (t + b) / (t - b);
 
 /*
 **  ----------------------------------------------------------------------------

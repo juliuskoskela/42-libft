@@ -11,12 +11,17 @@
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
-void			g_scale(t_mtx *mtx, double g_scale)
+
+t_mtx4			g_scale(double scale)
 {
-	mtx->this[0] = g_scale;
-	mtx->this[5] = g_scale;
-	mtx->this[10] = g_scale;
-	mtx->this[15] = 1.0;
+	t_mtx4		out;
+
+	out.name = s_dup("S");
+	out.v1 = g_vct4(scale, 0.0, 0.0, 0.0);
+	out.v2 = g_vct4(0.0, scale, 0.0, 0.0);
+	out.v3 = g_vct4(0.0, 0.0, scale, 0.0);
+	out.v4 = g_vct4(0.0, 0.0, 0.0, scale);
+	return (out);
 }
 
 /*

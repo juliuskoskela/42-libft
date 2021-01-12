@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_vtx.c                                          :+:      :+:    :+:   */
+/*   g_print_vct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/01 03:03:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/01 16:10:19 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/11 06:37:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_mtx		*g_vtx(double x, double y, double z, size_t index)
+void		g_print_vct(t_vct4 vct, size_t index)
 {
-	t_mtx	*out;
-
-	out = mtx_new(c_itoa(index), 1, 4);
-	out->this[0] = x;
-	out->this[1] = y;
-	out->this[2] = z;
-	out->this[3] = 1.0;
-	return (out);
+	printf("v%zu  %.1f  %.1f  %.1f  %.1f\n", index, vct.x, vct.y, vct.z, vct.w);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	G_vtx
-**
-**	Create an indexed vertex.
-**
-**  ----------------------------------------------------------------------------
-*/

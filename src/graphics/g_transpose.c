@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mtx_new.c                                          :+:      :+:    :+:   */
+/*   g_transpose.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 23:56:49 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/06 05:52:31 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/11 01:20:20 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/11 01:25:18 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_mtx			*mtx_new(char *name, size_t x, size_t y)
+t_mtx4 			g_transpose(t_mtx4 src)
 {
-	size_t		i;
-	t_mtx		*out;
+	t_mtx4		out;
 
-	i = 0;
-	out = (t_mtx *)v_alloc(sizeof(t_mtx));
-	out->name = s_dup(name);
-	out->this = (double *)v_alloc(sizeof(double) * (x * y));
-	out->x = x;
-	out->y = y;
+	out.name = s_join(src.name, "^");
+	out.v1.x = src.v1.x;
+	out.v1.y = src.v2.x;
+	out.v1.z = src.v3.x;
+	out.v1.w = src.v4.x;
+	out.v2.x = src.v1.y;
+	out.v2.y = src.v2.y;
+	out.v2.z = src.v3.y;
+	out.v2.w = src.v4.y;
+	out.v3.x = src.v1.z;
+	out.v3.y = src.v2.z;
+	out.v3.z = src.v3.z;
+	out.v3.w = src.v4.z;
+	out.v4.x = src.v1.w;
+	out.v4.y = src.v2.w;
+	out.v4.z = src.v3.w;
+	out.v4.w = src.v4.w;
 	return (out);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Mtx_new
-**
-**	Create a new matrix.
-**
-**  ----------------------------------------------------------------------------
-*/

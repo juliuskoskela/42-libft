@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/05 23:56:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/11 06:09:41 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,31 @@ typedef struct		s_htable
 	int				count;
 	size_t			(*hf)(char *);
 }					t_htable;
+
+typedef struct		s_vct4
+{
+	double			x;
+	double			y;
+	double			z;
+	double			w;
+	uint32_t		color;
+}					t_vct4;
+
+typedef struct		s_mtx4
+{
+	char			*name;
+	t_vct4			v1;
+	t_vct4			v2;
+	t_vct4			v3;
+	t_vct4			v4;
+}					t_mtx4;
+
+typedef struct		s_tri
+{
+	t_vct4			a;
+	t_vct4			b;
+	t_vct4			c;
+}					t_tri;
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -180,13 +205,25 @@ void				fd_addnbr(int n, int fd);
 **
 **	Graphics related functions.
 */
-t_mtx				*g_vtx(double x, double y, double z, size_t index);
-void				g_rotx(t_mtx *mtx, double angle);
-void				g_roty(t_mtx *mtx, double angle);
-void				g_rotz(t_mtx *mtx, double angle);
-void				g_trans(t_mtx *mtx, t_mtx *vtx);
-void				g_scale(t_mtx *mtx, double scale);
-void				g_proj(t_mtx *mtx, double fv, double rt, int n, int f);
+t_vct4				g_sub(t_vct4 a, t_vct4 b);
+t_vct4				g_add(t_vct4 a, t_vct4 b);
+t_vct4				g_cross(t_vct4 a, t_vct4 b);
+double				g_dot(t_vct4 a, t_vct4 b);
+double				g_mag(t_vct4 v);
+t_mtx4				g_mult_mtx(t_mtx4 a, t_mtx4 b);
+t_vct4				g_mult_vct(t_mtx4 mtx, t_vct4 vct);
+t_vct4				g_norm(t_vct4 v);
+t_vct4				g_opp(t_vct4 v);
+t_mtx4				g_proj(double fv, double rt, int n, int f);
+t_mtx4				g_rotx(double angle);
+t_mtx4				g_roty(double angle);
+t_mtx4				g_rotz(double angle);
+t_mtx4				g_scale(double scale);
+t_mtx4				g_translate(t_vct4 vtx);
+t_mtx4 				g_transpose(t_mtx4 src);
+t_vct4				g_vct4(double x, double y, double z, double w);
+void				g_print_mtx(t_mtx4 mtx);
+void				g_print_vct(t_vct4 vct, size_t index);
 /*
 **  ----------------------------------------------------------------------------
 **

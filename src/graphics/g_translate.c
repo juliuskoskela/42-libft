@@ -12,15 +12,16 @@
 
 #include "../../inc/libft.h"
 
-void			g_trans(t_mtx *mtx, t_mtx *vtx)
+t_mtx4			g_translate(t_vct4 vtx)
 {
-	mtx->this[0] = 1.0;
-	mtx->this[3] = vtx->this[0];
-	mtx->this[5] = 1.0;
-	mtx->this[7] = vtx->this[1];
-	mtx->this[10] = 1.0;
-	mtx->this[11] = vtx->this[2];
-	mtx->this[15] = 1.0;
+	t_mtx4		out;
+
+	out.name = s_dup("Tv");
+	out.v1 = g_vct4(1.0, 0.0, 0.0, vtx.x);
+	out.v2 = g_vct4(0.0, 1.0, 0.0, vtx.y);
+	out.v3 = g_vct4(0.0, 0.0, 1.0, vtx.z);
+	out.v4 = g_vct4(0.0, 0.0, 0.0, vtx.w);
+	return (out);
 }
 
 /*
