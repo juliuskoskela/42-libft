@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 00:50:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 01:04:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/17 10:49:04 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ double			m_modf(double x, double *iptr)
 **
 **	M_modf
 **
-**	Convert double x into a decimal representation. Function returns mantissa
+**	Convert double `x` into a decimal representation. Function returns mantissa
 **	and integral part is stored in the previously allocated int pointer `iptr`.
 **
 **  ----------------------------------------------------------------------------
