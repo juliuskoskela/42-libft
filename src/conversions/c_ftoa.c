@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 02:44:45 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/17 12:23:04 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/17 13:02:07 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static char		*join(uint64_t decimal, uint64_t integer)
 	return (s_join_free(out, c_itoa_base(decimal, 10), 3));
 }
 
-int				check_naninf(double nbr)
+static char		*check_naninf(double nbr)
 {
 	if (nbr != nbr)
-		return (1);
+		return (s_dup("nan"));
 	if (nbr > 0x1.fffffffffffffp+1023)
-		return (2);
+		return (s_dup("inf"));
 	if (nbr == log(0))
-		return (3);
-	return (0);
+		return (s_dup("-inf"));
+	return (NULL);
 }
 
 char			*c_ftoa(double nbr, size_t p)
@@ -39,16 +39,11 @@ char			*c_ftoa(double nbr, size_t p)
 	double		i;
 	double		mantissa;
 	char		*out;
-	int			nan;
+	char		*nan;
 
 	i = 0;
-	nan = check_naninf(nbr);
-	if (nan == 1)
-		return (s_dup("nan"));
-	else if (nan == 2)
-		return (s_dup("inf"));
-	else if (nan == 3)
-		return (s_dup("-inf"));
+	if ((nan = check_naninf(nbr)))
+		return(nan);
 	out = c_itoa_base((int64_t)(nbr + 0.5), 10);
 	if (p <= 1)
 		return (s_join_free(out, ".0", 1));
