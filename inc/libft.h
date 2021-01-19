@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/11 06:09:41 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/19 01:18:01 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
 char				*c_ftoa(double nbr, size_t p);
-char				*c_ftoe(double nbr);
+char				*c_ftoe(double nbr, size_t p);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -265,6 +265,8 @@ size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
 double				m_modf(double x, double *iptr);
+int64_t				m_abs(int64_t n);
+int					m_sign(int64_t n);
 /*
 **  ----------------------------------------------------------------------------
 **

@@ -6,36 +6,49 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:17 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/31 23:22:25 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/19 00:10:44 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
+static int		al_nbdigit(int64_t n)
+{
+	int			res;
+	uint64_t	tmp;
+
+	res = 1;
+	tmp = (n < 0 ? -n : n);
+	while (tmp >= 10)
+	{
+		res++;
+		tmp /= 10;
+	}
+	return (res);
+}
+
 char			*c_itoa(int64_t n)
 {
-	char		*str;
-	int64_t		size;
-	int64_t		sign;
+	char		*res;
+	int64_t		i;
+	int64_t		len;
 
-	size = m_intlen(n);
-	sign = is_neg(n);
-	str = (char *)v_alloc(size + 1 + sign);
-	if (!str)
+	len = (n < 0 ? al_nbdigit(n) + 1 : al_nbdigit(n));
+	if (!(res = s_new(len)))
 		return (NULL);
+	res[0] = (n == 0 ? '0' : '-');
+	if ((unsigned long)n == -9223372036854775808U)
+		return (s_dup("-9223372036854775808"));
+	i = len - 1;
 	if (n < 0)
+		n = -n;
+	while (n)
 	{
-		str[0] = '-';
-		size++;
-		n = n * -1;
+		res[i] = '0' + n % 10;
+		n /= 10;
+		i--;
 	}
-	while (size - sign)
-	{
-		str[size - 1] = 48 + n % 10;
-		n = n / 10;
-		size--;
-	}
-	return (str);
+	return (res);
 }
 
 /*

@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/11 06:11:29 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/19 01:18:25 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,8 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_ceil.c \
 			math/m_floor.c \
 			math/m_modf.c \
+			math/m_sign.c \
+			math/m_abs.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \
