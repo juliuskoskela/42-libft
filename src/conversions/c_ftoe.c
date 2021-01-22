@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 08:16:06 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/18 15:58:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/20 20:28:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ char			*c_ftoe(double nbr, size_t p)
 {
 	char		*out;
 	char		*tmp;
-	char		*nan;
 	double		sign;
 	int			i;
 
 	i = 0;
 	sign = 1;
-	if ((nan = check_naninf(nbr)))
-		return(nan);
+	if ((tmp = check_naninf(nbr)))
+		return (tmp);
 	if (nbr < 0)
 		sign = -1;
 	nbr = fabs(nbr);

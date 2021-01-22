@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 00:30:21 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 01:49:59 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:39:26 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 double			*vct_opp(double *vct, size_t size)
 {
 	double		*out;
-	size_t 		i;
+	size_t		i;
 
 	i = 0;
 	out = (double *)v_alloc(sizeof(double) * size);

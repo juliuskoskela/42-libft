@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_cross.c                                          :+:      :+:    :+:   */
+/*   s_copy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/20 19:02:26 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/22 03:47:58 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/22 03:50:28 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_vct4			g_cross(t_vct4 a, t_vct4 b)
+char				*s_copy(char *str, size_t start, size_t end, size_t flag)
 {
-	t_vct4		out;
+	char			*out;
+	size_t			i;
 
-	out.x = (a.y * b.z) - (a.z * b.y);
-	out.y = (a.z * b.x) - (a.x * b.z);
-	out.z = (a.x * b.y) - (a.y * b.x);
-	out.w = 1;
+	if (!str || start > end)
+		return (NULL);
+	out = end > 0 ? s_new(end - start) : s_new(s_len(str));
+	i = 0;
+	while (i < end - start && str[i + start])
+	{
+		out[i] = str[i + start];
+		i++;
+	}
+	if (flag == 1)
+		free(str);
 	return (out);
 }
+
 /*
 **  ----------------------------------------------------------------------------
 **
-**	G_dot
+**	S_copy
 **
-**	Get the cross product of `a` x `b`.
+**	A string copy with specified start and end points for copied area and a
+**	flag to free the input string if necessary. If end is set to 0, the whole
+**	string will be copied. Result string is allocated.
 **
 **  ----------------------------------------------------------------------------
 */

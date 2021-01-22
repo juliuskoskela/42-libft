@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:20:20 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/11 01:25:18 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:34:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_mtx4 			g_transpose(t_mtx4 src)
+t_mtx4			g_transpose(t_mtx4 src)
 {
 	t_mtx4		out;
 
@@ -35,3 +35,13 @@ t_mtx4 			g_transpose(t_mtx4 src)
 	out.v4.w = src.v4.w;
 	return (out);
 }
+
+/*
+**  ----------------------------------------------------------------------------
+**
+**	G_transpose
+**
+**	Transpose t_mtx4 `src`.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:05:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/03 17:07:49 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:40:52 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ double			m_floor(double x)
 **
 **	M__floor
 **
-**	Ceiling function maps to the least integer less than or equal to.
+**	Floor function maps to the least integer less than or equal to.
 **
 **  ----------------------------------------------------------------------------
 */

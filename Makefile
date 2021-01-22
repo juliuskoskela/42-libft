@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/19 01:18:25 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/01/22 03:50:50 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ SRC_BASE =	bits/b_atonb.c \
 			strings/s_ncmp.c \
 			strings/s_ncpy.c \
 			strings/s_ndup.c \
+			strings/s_copy.c \
 			strings/s_nequ.c \
 			strings/s_new.c \
 			strings/s_nstr.c \

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/19 01:18:01 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/22 03:50:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,6 +323,7 @@ uint64_t			s_lcpy(char *dst, const char *src, uint64_t dstsize);
 char				*s_dup(const char *s);
 char				*s_ndup(const char *s, uint64_t n);
 char				*s_cdup(const char *s1, char c);
+char				*s_copy(char *str, size_t start, size_t end, size_t flag);
 uint64_t			s_len(const char *s);
 char				*s_str(const char *h, const char *n);
 char				*s_nstr(const char *h, const char *n, uint64_t len);

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 01:14:31 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/19 01:18:04 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/21 13:44:12 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int					m_sign(int64_t n)
 {
-	return (n > 0 ? 1 : -1);
+	if (n != 0)
+		return (n > 0 ? 1 : -1);
+	else
+		return (0);
 }
