@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:17 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/19 00:10:44 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/26 14:27:50 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ char			*c_itoa(int64_t n)
 		return (NULL);
 	res[0] = (n == 0 ? '0' : '-');
 	if ((unsigned long)n == -9223372036854775808U)
-		return (s_dup("-9223372036854775808"));
+	{
+		s_del(&res);
+		return (s_dup("9223372036854775808"));
+	}
 	i = len - 1;
 	if (n < 0)
 		n = -n;

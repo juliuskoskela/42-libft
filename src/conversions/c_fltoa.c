@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_ftoe.c                                           :+:      :+:    :+:   */
+/*   c_fltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 08:16:06 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/23 17:15:52 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/11/02 02:44:45 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/23 18:45:56 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-static char		*check_naninf(long double nbr)
+static char			*join(uint64_t decimal, uint64_t integer)
+{
+	char			*out;
+
+	out = c_itoa_base(integer, 10);
+	out = s_join_free(out, ".", 1);
+	return (s_join_free(out, c_itoa_base(decimal, 10), 3));
+}
+
+static char			*check_naninf(long double nbr)
 {
 	if (nbr != nbr)
 		return (s_dup("nan"));
@@ -23,39 +32,34 @@ static char		*check_naninf(long double nbr)
 	return (NULL);
 }
 
-char			*c_ftoe(long double nbr, size_t p)
+char				*c_fltoa(long double nbr, size_t p)
 {
-	char		*out;
-	char		*tmp;
-	long double	sign;
-	int			i;
+	uint64_t		integer;
+	uint64_t		decimal;
+	long double		mantissa;
+	long double		i;
+	char			*out;
 
 	i = 0;
-	sign = 1;
-	if ((tmp = check_naninf(nbr)))
-		return (tmp);
-	if (nbr < 0)
-		sign = -1;
-	nbr = m_fabs(nbr);
-	while (nbr >= 10.0)
-	{
-		nbr /= 10.0;
-		i++;
-	}
-	nbr = nbr * sign;
-	tmp = c_ftoa(nbr, p);
-	out = s_join_free(tmp, "e+0", 1);
-	tmp = s_join_free(out, c_itoa_base(i, 10), 2);
+	if ((out = check_naninf(nbr)))
+		return (out);
+	out = c_itoa_base((int64_t)(nbr + 0.5), 10);
+	if (p < 1)
+		return (s_join_free(out, ".0", 1));
+	mantissa = m_flabs(m_modl(nbr, &i));
+	decimal = (uint64_t)(pow(10, p) * mantissa + 0.5);
+	integer = (uint64_t)(i);
 	free(out);
-	return (tmp);
+	out = join(decimal, integer);
+	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_ftoe
+**	C_ftoa
 **
-**	Convert long double `nbr` into scientific notation in ascii.
+**	Convert double `nbr` to a string of characters with decimal precision `p`.
 **
 **  ----------------------------------------------------------------------------
 */

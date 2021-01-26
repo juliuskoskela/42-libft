@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/22 03:50:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/24 16:47:21 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,37 @@
 # define SQRTPREC 64
 # define POWPREC 0.000001
 # define PI 3.14159265359
+# define NEG_INF 0XFFF0000000000000
+# define POS_INF 0X7FF0000000000000
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
+# include <float.h>
 
 typedef union		u_double
 {
 	double			f;
 	uint64_t		i;
 }					t_double;
+
+typedef union		s_ldshape
+{
+	long double 	f;
+	uint64_t		m;
+	uint16_t		se;
+}					t_ldshape;
+
+typedef struct		s_modl
+{
+	t_ldshape		u;
+	int				e;
+	int				s;
+	long double		y;
+	long double		absx;
+	long double 	toint;
+}					t_modl;
 
 typedef struct		s_mtx
 {
@@ -155,7 +175,8 @@ int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
 char				*c_ftoa(double nbr, size_t p);
-char				*c_ftoe(double nbr, size_t p);
+char				*c_fltoa(long double nbr, size_t p);
+char				*c_ftoe(long double nbr, size_t p);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -220,7 +241,7 @@ t_mtx4				g_roty(double angle);
 t_mtx4				g_rotz(double angle);
 t_mtx4				g_scale(double scale);
 t_mtx4				g_translate(t_vct4 vtx);
-t_mtx4 				g_transpose(t_mtx4 src);
+t_mtx4				g_transpose(t_mtx4 src);
 t_vct4				g_vct4(double x, double y, double z, double w);
 void				g_print_mtx(t_mtx4 mtx);
 void				g_print_vct(t_vct4 vct, size_t index);
@@ -254,6 +275,7 @@ double				m_sqrt(double n);
 int64_t				m_log(int64_t n);
 int					m_intlen(int64_t n);
 double				m_fabs(double n);
+long double			m_flabs(long double n);
 double				m_pow(double base, double exp);
 double				m_sin(double x, int64_t p);
 double				m_cos(double x, int64_t p);
@@ -265,6 +287,7 @@ size_t				m_dcnt(uint64_t nb, uint64_t base);
 double				m_ceil(double f);
 double				m_floor(double x);
 double				m_modf(double x, double *iptr);
+long double			m_modl(long double x, long double *iptr);
 int64_t				m_abs(int64_t n);
 int					m_sign(int64_t n);
 /*

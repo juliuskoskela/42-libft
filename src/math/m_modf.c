@@ -6,20 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 00:50:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/21 12:52:47 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:07:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			m_modf(double x, double *iptr)
+static double	aux(double x, double *iptr, t_double u, int e)
 {
-	t_double	u;
-	uint64_t	mask;
-	int			e;
-
-	u = (t_double)x;
-	e = (int)(u.i >> 52 & 0x7ff) - 0x3ff;
 	if (e >= 52)
 	{
 		*iptr = x;
@@ -34,6 +28,20 @@ double			m_modf(double x, double *iptr)
 		*iptr = u.f;
 		return (x);
 	}
+	return (0);
+}
+
+double			m_modf(double x, double *iptr)
+{
+	t_double	u;
+	uint64_t	mask;
+	int			e;
+	double		ret;
+
+	u = (t_double)x;
+	e = (int)(u.i >> 52 & 0x7ff) - 0x3ff;
+	if ((ret = aux(x, iptr, u, e)))
+		return (ret);
 	mask = -1ULL >> 12 >> e;
 	if ((u.i & mask) == 0)
 	{

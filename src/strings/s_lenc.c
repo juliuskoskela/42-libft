@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:01:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/30 14:09:38 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:20:16 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				s_lenc(char *s, char c)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
 /*

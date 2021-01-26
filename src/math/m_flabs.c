@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_cross.c                                          :+:      :+:    :+:   */
+/*   m_flabs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/20 19:02:26 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/01/26 21:53:28 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/01/26 21:53:29 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
-
-t_vct4			g_cross(t_vct4 a, t_vct4 b)
+long double			m_flabs(long double n)
 {
-	t_vct4		out;
-
-	out.x = (a.y * b.z) - (a.z * b.y);
-	out.y = (a.z * b.x) - (a.x * b.z);
-	out.z = (a.x * b.y) - (a.y * b.x);
-	out.w = 1;
-	return (out);
+	if (n < 0)
+		return (n * -1);
+	else
+		return (n);
 }
+
 /*
 **  ----------------------------------------------------------------------------
 **
-**	G_dot
+**	M_fabs
 **
-**	Get the cross product of `a` x `b`.
+**	Return the absolute (positive) value of a floating point number.
 **
 **  ----------------------------------------------------------------------------
 */
