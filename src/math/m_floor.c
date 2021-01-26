@@ -6,21 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:05:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/20 19:40:52 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:34:12 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-double			m_floor(double x)
+static double	aux(double xcopy, int64_t zeros, double n, double x)
 {
-	double		xcopy;
-	int64_t		zeros;
-	double		n;
-
-	xcopy = x < 0 ? x * -1 : x;
-	zeros = 0;
-	n = 1;
 	while (xcopy > n * 10)
 	{
 		n *= 10;
@@ -40,6 +33,18 @@ double			m_floor(double x)
 		return (xcopy == 0 ? x : x - (1 - xcopy));
 	else
 		return (x - xcopy);
+}
+
+double			m_floor(double x)
+{
+	double		xcopy;
+	int64_t		zeros;
+	double		n;
+
+	xcopy = x < 0 ? x * -1 : x;
+	zeros = 0;
+	n = 1;
+	return (aux(xcopy, zeros, n, x));
 }
 
 /*
