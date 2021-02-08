@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   m_fsign.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/03 21:13:03 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/03 21:14:34 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+int					m_fsign(long double n)
 {
-	uint64_t	i;
-	char		*str;
-
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	if (n < 0)
+		return (-1);
+	else if (n > 0)
+		return (1);
+	else
+		return (0);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	M_fsign
 **
-**	Convert a an int to a bit representation in chars.
+**	Return the sign of float `n`. If `n` is zero returns 0.
 **
 **  ----------------------------------------------------------------------------
 */

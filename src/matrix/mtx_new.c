@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 23:56:49 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/06 05:52:31 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 23:44:04 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 t_mtx			*mtx_new(char *name, size_t x, size_t y)
 {
-	size_t		i;
 	t_mtx		*out;
 
-	i = 0;
 	out = (t_mtx *)v_alloc(sizeof(t_mtx));
 	out->name = s_dup(name);
 	out->this = (double *)v_alloc(sizeof(double) * (x * y));

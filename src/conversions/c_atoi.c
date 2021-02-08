@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:03 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/05 00:31:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int				c_atoi(const char *str)
 	i = 0;
 	res = 0;
 	negative = 1;
-	while (is_wspace(str[i]) == 1)
+	if (!str)
+		return (0);
+	while (!is_digit(str[i]) && str[i])
 		i++;
 	if (str[i] == '-')
 		negative = -1;

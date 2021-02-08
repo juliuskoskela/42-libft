@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   s_find_first.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 02:41:42 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 02:41:52 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+int				s_find_first(char *ref, char *src)
 {
-	uint64_t	i;
-	char		*str;
+	size_t			i;
 
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
+	i = 1;
+	while (!(s_chr(ref, src[i - 1])))
 		i++;
-	}
-	return (str);
+	if (s_chr(ref, src[i - 1]))
+		return (i);
+	else
+		return (0);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	S_find_first
 **
-**	Convert a an int to a bit representation in chars.
+**	Return the index of the first occurence of any character in `ref` from the
+**	string `src`.
 **
 **  ----------------------------------------------------------------------------
 */

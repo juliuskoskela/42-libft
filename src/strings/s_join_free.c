@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 01:05:39 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/23 13:33:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/05 02:49:18 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char		*s_join_free(char *s1, char *s2, size_t flag)
 	char	*out;
 
 	out = s_join(s1, s2);
+	if (out == NULL)
+		return (NULL);
 	if (flag == 1)
 		s_del(&s1);
 	else if (flag == 2)

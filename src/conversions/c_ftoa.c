@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 02:44:45 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/24 17:20:08 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 03:24:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static char		*check_naninf(double nbr)
 {
 	if (nbr != nbr)
 		return (s_dup("nan"));
-	if (nbr > 0x1.fffffffffffffp+1023)
+	if (nbr == POS_INF)
 		return (s_dup("inf"));
-	if (nbr == log(0))
+	if (nbr == NEG_INF)
 		return (s_dup("-inf"));
 	return (NULL);
 }
 
-char			*c_ftoa(double nbr, size_t p)
+char			*c_ftoa(double nbr, int p)
 {
 	uint64_t	integer;
 	uint64_t	decimal;
@@ -44,8 +44,6 @@ char			*c_ftoa(double nbr, size_t p)
 	if ((out = check_naninf(nbr)))
 		return (out);
 	out = c_itoa_base((int64_t)(nbr + 0.5), 10);
-	if (p < 1)
-		return (s_join_free(out, ".0", 1));
 	mantissa = m_fabs(m_modf(nbr, &i));
 	decimal = (uint64_t)(m_pow(10, p) * mantissa + 0.5);
 	integer = (uint64_t)(i);

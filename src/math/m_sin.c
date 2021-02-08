@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:01:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/04 20:01:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/02 11:50:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 double			m_sin(double x, int64_t p)
 {
-	double		q;
 	double		sum;
 	int64_t		i;
 	int64_t		j;
 
-	q = x;
 	sum = 0;
 	x = x * (PI / 180);
 	i = 1;

@@ -6,22 +6,17 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:43 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 01:01:27 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:29:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		p_str(char const *s)
+int				p_str(char const *s)
 {
-	uint64_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		p_char(s[i]);
-		i++;
-	}
+	if (!(write(1, s, s_len(s))))
+		return (0);
+	return (1);
 }
 
 /*

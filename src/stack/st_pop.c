@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   st_pop.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/05 02:55:36 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/06 03:12:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+void				*st_pop(t_stack **head)
 {
-	uint64_t	i;
-	char		*str;
+	void			*res;
+	t_stack			*tmp;
 
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	if (*head == NULL)
+		return (NULL);
+	res = (*head)->content;
+	tmp = *head;
+	*head = (*head)->next;
+	free(tmp);
+	return (res);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	St_pop
 **
-**	Convert a an int to a bit representation in chars.
+**	Pop from the stack.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -6,13 +6,13 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/01/22 03:50:50 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 23:41:16 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 
-CC			?=	gcc
+CC			?=	clang
 FLAGS		=	-g -Wall -Wextra -Werror -O3 -D FULL_LIBFT
 
 LEN_NAME	=	`printf "%s" $(NAME) |wc -c`
@@ -81,14 +81,20 @@ SRC_BASE =	bits/b_atonb.c \
 			istrue/is_print.c \
 			istrue/is_upper.c \
 			istrue/is_wspace.c \
+			istrue/is_numeric.c \
+			istrue/is_abnormal.c \
+			stack/st_push.c \
+			stack/st_pop.c \
 			math/m_rad.c \
 			math/m_dgr.c \
 			math/m_fabs.c \
+			math/m_flabs.c \
 			math/m_fac.c \
 			math/m_intlen.c \
 			math/m_log.c \
 			math/m_nextprime.c \
 			math/m_pow.c \
+			math/m_ipow.c \
 			math/m_prime.c \
 			math/m_primefac.c \
 			math/m_sin.c \
@@ -99,7 +105,9 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_floor.c \
 			math/m_modf.c \
 			math/m_sign.c \
+			math/m_fsign.c \
 			math/m_abs.c \
+			math/m_roundl.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \
@@ -144,6 +152,10 @@ SRC_BASE =	bits/b_atonb.c \
 			strings/s_ctoc.c \
 			strings/s_newc.c \
 			strings/s_join_free.c \
+			strings/s_fill.c \
+			strings/s_cut.c \
+			strings/s_swp.c \
+			strings/s_find_first.c \
 			void/v_alloc.c \
 			void/v_bzero.c \
 			void/v_calloc.c \
@@ -154,6 +166,29 @@ SRC_BASE =	bits/b_atonb.c \
 			void/v_del.c \
 			void/v_move.c \
 			void/v_set.c \
+			graphics/g_sub.c \
+			graphics/g_add.c \
+			graphics/g_cross.c \
+			graphics/g_dot.c \
+			graphics/g_mag.c \
+			graphics/g_proj.c \
+			graphics/g_mult_mtx.c \
+			graphics/g_translate.c \
+			graphics/g_mult_vct.c \
+			graphics/g_rotx.c \
+			graphics/g_roty.c \
+			graphics/g_rotz.c \
+			graphics/g_transpose.c \
+			graphics/g_norm.c \
+			graphics/g_vct4.c \
+			graphics/g_opp.c \
+			graphics/g_scale.c \
+			graphics/g_print_mtx.c \
+			graphics/g_print_vct.c \
+			flags/f_scan.c \
+			flags/f_s.c \
+			flags/f_c.c \
+			flags/f_a.c \
 			hash/hash1.c \
 			hash/ht_create.c \
 			hash/ht_insert.c \
@@ -175,25 +210,6 @@ SRC_BASE =	bits/b_atonb.c \
 			matrix/vct_mag.c \
 			matrix/vct_opp.c \
 			matrix/vct_norm.c \
-			graphics/g_sub.c \
-			graphics/g_add.c \
-			graphics/g_cross.c \
-			graphics/g_dot.c \
-			graphics/g_mag.c \
-			graphics/g_proj.c \
-			graphics/g_mult_mtx.c \
-			graphics/g_translate.c \
-			graphics/g_mult_vct.c \
-			graphics/g_rotx.c \
-			graphics/g_roty.c \
-			graphics/g_rotz.c \
-			graphics/g_transpose.c \
-			graphics/g_norm.c \
-			graphics/g_vct4.c \
-			graphics/g_opp.c \
-			graphics/g_scale.c \
-			graphics/g_print_mtx.c \
-			graphics/g_print_vct.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

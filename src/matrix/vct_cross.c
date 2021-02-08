@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 01:28:08 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/12/31 01:57:38 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 23:44:18 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 double			*vct_cross(double *a, double *b, size_t size)
 {
 	double		*out;
-	size_t		i;
 
-	i = 0;
 	out = (double *)v_alloc(sizeof(double) * size);
 	out[0] = (a[1] * b[2]) - (a[2] * b[1]);
 	out[1] = (a[2] * b[0]) - (a[0] * b[2]);

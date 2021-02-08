@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   s_swp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 02:21:00 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 02:22:11 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+void				s_swp(char *a, char *b)
 {
-	uint64_t	i;
-	char		*str;
+	char	out;
 
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	out = *a;
+	*a = *b;
+	*b = out;
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	S_swp
 **
-**	Convert a an int to a bit representation in chars.
+**	Swap characters passed as pointers `a` and `b`.
 **
 **  ----------------------------------------------------------------------------
 */

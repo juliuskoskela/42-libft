@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   s_fill.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/03 21:20:36 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/03 21:24:13 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+char			*s_fill(char *data, size_t b_size, char *flags)
 {
-	uint64_t	i;
-	char		*str;
+	char		*out;
+	size_t		i;
+	size_t		j;
+	size_t		d_size;
 
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	d_size = s_len(data);
+	j = 0;
+	if (b_size < d_size)
+		return (data);
+	i = s_chr(flags, '-') ? 0 : b_size - d_size;
+	out = s_chr(flags, '0') ? s_newc(b_size, '0') : s_newc(b_size, ' ');
+	while (data[j])
+		out[i++] = data[j++];
+	s_del(&data);
+	return (out);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	S_fill
 **
-**	Convert a an int to a bit representation in chars.
+**	Create a new string of `b_size` and fill it with the string `data`.
+**	'0' = format with zeros instead of space.
+**	'-' = left adjust
 **
 **  ----------------------------------------------------------------------------
 */

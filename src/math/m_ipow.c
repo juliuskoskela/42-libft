@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   m_ipow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 00:34:10 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 00:34:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+int64_t				m_ipow(int64_t base, int64_t exp)
 {
-	uint64_t	i;
-	char		*str;
+	int64_t			tmp;
+	int64_t			i;
 
 	i = 0;
-	str = s_new(len + 1);
-	while (len--)
+	tmp = base;
+	if (base == 0 && exp == 0)
+		return (1);
+	else if (base == 0)
+		return (0);
+	else if (exp == 0)
+		return (1);
+	while (i < exp - 1)
 	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
+		tmp *= base;
 		i++;
 	}
-	return (str);
+	return (tmp);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	M_ipow
 **
-**	Convert a an int to a bit representation in chars.
+**	Calculate (integer) `base` raised to the (integer) `exp`th power.
 **
 **  ----------------------------------------------------------------------------
 */

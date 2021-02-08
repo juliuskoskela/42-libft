@@ -6,19 +6,19 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 08:16:06 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/23 17:15:52 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/01 10:51:34 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-static char		*check_naninf(long double nbr)
+static char		*check_naninf(double nbr)
 {
 	if (nbr != nbr)
 		return (s_dup("nan"));
-	if (nbr > 0x1.fffffffffffffp+1023)
+	if (nbr == POS_INF)
 		return (s_dup("inf"));
-	if (nbr == log(0))
+	if (nbr == NEG_INF)
 		return (s_dup("-inf"));
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 01:58:34 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/11/02 00:44:22 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 03:22:09 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ double			m_pow(double base, double exp)
 	double		high;
 	double		low;
 
-	low = 0;
+	low = 0.0;
 	high = 1.0;
 	return (m_pow_(base, exp, high, low));
 }

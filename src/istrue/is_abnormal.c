@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   is_abnormal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 01:59:02 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 02:00:27 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+int				is_abnormal(double nbr)
 {
-	uint64_t	i;
-	char		*str;
-
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	if (nbr != nbr)
+		return (1);
+	if (nbr == POS_INF)
+		return (2);
+	if (nbr == NEG_INF)
+		return (3);
+	return (0);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	Is_abnormal
 **
-**	Convert a an int to a bit representation in chars.
+**	Returns 0 if `nbr` isn't abnormal, 1 if it's not a number, 2 if it's
+**	positive infinity and 3 if negative infinity.
 **
 **  ----------------------------------------------------------------------------
 */

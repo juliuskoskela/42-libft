@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/24 16:47:21 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 23:39:14 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # define BUFF_SIZE 4
 # define CAPACITY 7
 # define MAX_FD 1024
-# define SQRTPREC 64
-# define POWPREC 0.000001
+# define SQRTPREC 300
+# define POWPREC 0.00000000001
 # define PI 3.14159265359
 # define NEG_INF 0XFFF0000000000000
 # define POS_INF 0X7FF0000000000000
@@ -25,7 +25,14 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
+# include <stdint.h>
 # include <float.h>
+
+typedef struct		s_stack
+{
+	void			*content;
+	struct s_stack	*next;
+}					t_stack;
 
 typedef union		u_double
 {
@@ -33,12 +40,24 @@ typedef union		u_double
 	uint64_t		i;
 }					t_double;
 
-typedef union		s_ldshape
+typedef union		u_ldshape
 {
-	long double 	f;
+	long double		f;
 	uint64_t		m;
 	uint16_t		se;
 }					t_ldshape;
+
+typedef struct		s_uint80
+{
+	uint64_t		u64;
+	uint16_t		u16;
+}					t_uint80;
+
+typedef union		u_ldbits
+{
+	long double		ldbl;
+	t_uint80		u80;
+}					t_ldbits;
 
 typedef struct		s_modl
 {
@@ -47,7 +66,7 @@ typedef struct		s_modl
 	int				s;
 	long double		y;
 	long double		absx;
-	long double 	toint;
+	long double		toint;
 }					t_modl;
 
 typedef struct		s_mtx
@@ -174,7 +193,7 @@ char				*c_itoa_base(int64_t nb, int64_t base);
 int					c_tolower(int c);
 int					c_toupper(int c);
 char				*c_bitoa(uint64_t nb, uint64_t len);
-char				*c_ftoa(double nbr, size_t p);
+char				*c_ftoa(double nbr, int p);
 char				*c_fltoa(long double nbr, size_t p);
 char				*c_ftoe(long double nbr, size_t p);
 /*
@@ -243,8 +262,8 @@ t_mtx4				g_scale(double scale);
 t_mtx4				g_translate(t_vct4 vtx);
 t_mtx4				g_transpose(t_mtx4 src);
 t_vct4				g_vct4(double x, double y, double z, double w);
-void				g_print_mtx(t_mtx4 mtx);
-void				g_print_vct(t_vct4 vct, size_t index);
+void				print_mtx(t_mtx4 mtx);
+void				print_vct(t_vct4 vct, size_t index);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -262,6 +281,8 @@ int					is_upper(int c);
 int					is_lower(int c);
 int					is_wspace(char c);
 int					is_neg(int n);
+int					is_numeric(int c);
+int					is_abnormal(double nbr);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -290,6 +311,9 @@ double				m_modf(double x, double *iptr);
 long double			m_modl(long double x, long double *iptr);
 int64_t				m_abs(int64_t n);
 int					m_sign(int64_t n);
+int					m_fsign(long double n);
+long double			m_roundl(long double x);
+int64_t				m_ipow(int64_t base, int64_t exp);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -320,11 +344,31 @@ double				*vct_norm(double *vct, size_t size);
 **	Functions for printing on the standard output.
 */
 void				p_char(char c);
-void				p_str(char const *s);
+int					p_str(char const *s);
 void				p_endl(char const *s);
 void				p_nbr(int n);
 void				p_bits(uint64_t nb, uint64_t size);
 void				p_dlist_s(t_dlist **list);
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Stack
+**
+**	Stack functions.
+*/
+void				*st_pop(t_stack **head);
+int					st_push(t_stack **head, void *value);
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Flags
+**
+**	An implementation of a bitwise flag system.
+*/
+size_t				f_scan(char *flag_order, char *flags_str);
+size_t				f_c(size_t flags, size_t fl);
+size_t				f_s(size_t flags, size_t fl);
+size_t				f_a(size_t flags, size_t fl);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -370,6 +414,10 @@ char				*s_appendc(char *str, char c);
 void				s_ctoc(char *str, int from, int to);
 char				*s_newc(size_t size, int c);
 char				*s_join_free(char *s1, char *s2, size_t flag);
+char				*s_fill(char *data, size_t b_size, char *flags);
+char				*s_cut(char *s, size_t size);
+void				s_swp(char *a, char *b);
+int					s_find_first(char *ref, char *src);
 /*
 **  ----------------------------------------------------------------------------
 **

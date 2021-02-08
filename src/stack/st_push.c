@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_bitoa.c                                          :+:      :+:    :+:   */
+/*   st_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:25:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/04 18:16:41 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/05 02:54:57 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/06 02:39:34 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-char			*c_bitoa(uint64_t nb, uint64_t len)
+int					st_push(t_stack **head, void *value)
 {
-	uint64_t	i;
-	char		*str;
+	t_stack			*newnode;
 
-	i = 0;
-	str = s_new(len + 1);
-	while (len--)
-	{
-		if (b_checknth(nb, i) == 1)
-			str[len] = '1';
-		else
-			str[len] = '0';
-		i++;
-	}
-	return (str);
+	if (!(newnode = (t_stack *)malloc(sizeof(t_stack))))
+		return (-1);
+	newnode->content = value;
+	newnode->next = *head;
+	*head = newnode;
+	return (1);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	C_bitoa
+**	St_push
 **
-**	Convert a an int to a bit representation in chars.
+**	Push to the stack.
 **
 **  ----------------------------------------------------------------------------
 */
