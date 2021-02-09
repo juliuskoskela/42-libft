@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 23:39:14 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/09 19:43:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,8 +262,8 @@ t_mtx4				g_scale(double scale);
 t_mtx4				g_translate(t_vct4 vtx);
 t_mtx4				g_transpose(t_mtx4 src);
 t_vct4				g_vct4(double x, double y, double z, double w);
-void				print_mtx(t_mtx4 mtx);
-void				print_vct(t_vct4 vct, size_t index);
+void				g_print_mtx(t_mtx4 mtx);
+void				g_print_vct(t_vct4 vct, size_t index);
 /*
 **  ----------------------------------------------------------------------------
 **
