@@ -6,14 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/09 19:43:23 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/07 03:07:52 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define BUFF_SIZE 4
-# define CAPACITY 7
+# define CAPACITY 100
 # define MAX_FD 1024
 # define SQRTPREC 300
 # define POWPREC 0.00000000001
@@ -428,7 +428,7 @@ int					s_find_first(char *ref, char *src);
 void				*v_cpy(void *dest, const void *src, uint64_t n);
 void				*v_ccpy(void *dst, const void *src, int c, uint64_t n);
 void				*v_chr(const void *s, int c, uint64_t n);
-int					v_cmp(const void *s1, const void *s2, uint64_t n);
+int					v_cmp(const void *s1, const void *s2, size_t n);
 void				*v_move(void *dest, const void *src, uint64_t n);
 void				*v_set(void *s, int c, uint64_t n);
 void				*v_alloc(uint64_t size);
